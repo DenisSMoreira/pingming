@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 1.1//EN"
+       "http://jakarta.apache.org/struts/dtds/tiles-config_1_1.dtd">
+
+<tiles-definitions>
+
+	<!--
+	#####################################
+	ETAPA 1 - TEMPLATES TILES DO SERVIÇO
+	#####################################
+	-->
+
+	<definition name="autenticacao.main" extends="cbss.main">
+		<put name="etapaServico" value="" />
+		<put name="etapaAtual" value="0" />
+		<putList name="js">
+		  <item value="" link="cbsslogin/js/comum/validacao.js" />
+          <item value="" link="cbsslogin/js/comum/jquery.maskedinput-1.1.1.js" />
+          <item value="" link="cbsslogin/js/comum/publicKey_cbss.js" />
+          <item value="" link="cbsslogin/js/comum/scpscrpt.js" />
+          <item value="" link="cbsslogin/js/comum/deficienteVisual.js" />
+          <item value="" link="cbsslogin/js/comum/autenticador.js" />
+          <item value="" link="cbsslogin/js/cbsslogin/cbsslogin.js" />
+		</putList>
+		<putList name="css">
+			<item value="" link="cbsslogin/css/comum/autenticador.css" />
+		</putList>
+	</definition>
+
+	<definition name="autenticacao.main.erro" extends="cbss.main.erro">
+		<put name="etapaServico" value="" />
+		<put name="etapaAtual" value="0" />
+		<putList name="js">
+		  <item value="" link="cbsslogin/js/comum/validacao.js" />
+          <item value="" link="cbsslogin/js/comum/jquery.maskedinput-1.1.1.js" />
+          <item value="" link="cbsslogin/js/comum/publicKey_cbss.js" />
+          <item value="" link="cbsslogin/js/comum/scpscrpt.js" />
+          <item value="" link="cbsslogin/js/comum/deficienteVisual.js" />
+          <item value="" link="cbsslogin/js/cbsslogin/cbsslogin.js" />
+		</putList>
+		<putList name="css">
+		</putList>
+	</definition>
+
+	<!--
+	#####################################
+	ETAPA 2 - TILES DE SUCESSO
+	#####################################
+	-->
+
+    <definition name="tilesAutenticacaoLogin" extends="autenticacao.main">
+    	<put name="dvTextoInicial" value="title.autenticacao.dados" />
+    	<put name="body" value="/WEB-INF/jsp/autenticacao/login.jsp" />
+		<put name="numeroTela" value="01" />
+		<put name="etapaAtual" value="1" />
+    </definition>
+    
+     <definition name="tilesAutenticacaoSenha" extends="autenticacao.main">
+     	<put name="dvTextoInicial" value="title.autenticacao.senha" />
+    	<put name="body" value="/WEB-INF/jsp/autenticacao/senha.jsp" />
+		<put name="numeroTela" value="02" />
+		<put name="etapaAtual" value="2" />
+    </definition>
+    
+    <definition name="tilesAutenticacaoMensagem" extends="autenticacao.main">
+    	<put name="dvTextoInicial" value="mensagem.controleacessotitulo.texto" />
+    	<put name="body" value="/WEB-INF/jsp/autenticacao/mensagem.jsp" />
+		<put name="numeroTela" value="02" />
+		<put name="etapaAtual" value="2" />
+    </definition>
+    
+	<!--
+	#####################################
+	ETAPA 3 - TILES DE ERRO
+	#####################################
+	-->
+	
+	<definition name="tilesErroAutenticacaoLogin" extends="autenticacao.main.erro">
+        <put name="numeroTela" value="" />
+        <put name="etapaAtual" value="" />
+    </definition>
+	
+	<definition name="tilesErroAutenticacaoSenha" extends="autenticacao.main.erro">
+		<put name="numeroTela" value="02" />
+		<put name="etapaAtual" value="2" />
+	</definition>
+	
+	<definition name="tilesErroAutenticacaoMensagem" extends="autenticacao.main.erro">
+		<put name="numeroTela" value="02" />
+		<put name="etapaAtual" value="2" />
+	</definition>
+	
+	<definition name="tilesErroAutenticacaoHome" extends="autenticacao.main.erro">
+		<put name="numeroTela" value="" />
+		<put name="etapaAtual" value="" />
+	</definition>
+
+</tiles-definitions>

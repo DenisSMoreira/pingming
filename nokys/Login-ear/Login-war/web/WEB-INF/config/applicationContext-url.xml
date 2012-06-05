@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="urlService" 
+	      class= "cbss.perfil.infra.impl.URLServiceImpl">
+		<property name="mapUrlServico">
+			<set>
+				<map><entry key="AUT" value="/autenticacao/.*" /></map>
+				<map><entry key="CDS" value="/cadastrarsenha/.*" /></map>
+				<map><entry key="ALS" value="/alterarsenha/.*" /></map>	
+				<map><entry key="RCS" value="/recuperarsenha/.*" /></map>
+				<map><entry key="DBS" value="/desbloquearsenha/.*" /></map>
+				<map><entry key="" value="/index.*" /></map>
+				<map><entry key="" value="/home.*" /></map>
+				<map><entry key="" value="/page.*" /></map>
+				<map><entry key="" value="/exception.*" /></map>
+				<map><entry key="" value="/filtro.*" /></map>
+				<map><entry key="" value="/erro.*" /></map>
+				<map><entry key="" value="/sac.*" /></map>
+			</set>
+		</property>
+		<property name="mapAcessosLiberados">
+			<set>
+				<map><entry key="ALS" value="" /></map>
+			</set>
+		</property>
+	</bean>
+	
+	<bean name="urlsPublicas"  class="java.util.ArrayList">
+		<constructor-arg>
+			<list>
+				<value>/cbsslogin/autenticacao/</value>
+				<value>/cbsslogin/cadastrarsenha/</value>
+				<value>/cbsslogin/desbloquearsenha/</value>
+				<value>/cbsslogin/recuperarsenha/</value>
+				<value>/cbsslogin/homeinstitucional/</value>
+				<value>/cbsslogin/homeinstitucional/home.do</value>
+	    	</list>
+		</constructor-arg>		
+	</bean>
+	<bean name="urlsLogadas"  class="java.util.ArrayList">
+		<constructor-arg>
+			<list><value>/cbsslogin/alterarsenha/</value>
+			</list>
+		</constructor-arg>		
+	</bean>
+</beans>
