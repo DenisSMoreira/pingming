@@ -2,7 +2,7 @@ package web.login.dao.impl;
 
 
 import javax.ejb.Stateless;
-import web.comum.dao.AbstractDAOJPAImpl;
+import web.comum.dao.DAOJPAImpl;
 import web.login.dao.ILoginDAO;
 
 
@@ -14,7 +14,7 @@ import web.login.dao.ILoginDAO;
  * 
  */
 @Stateless
-public class LoginDAOImpl extends AbstractDAOJPAImpl<Object, Long> implements ILoginDAO {
+public class LoginDAOImpl extends DAOJPAImpl<Object, Long> implements ILoginDAO {
 
 
     /**
