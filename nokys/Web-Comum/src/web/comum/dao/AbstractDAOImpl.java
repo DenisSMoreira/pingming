@@ -23,7 +23,7 @@ import web.comum.dao.exception.DataBaseException;
  * @param <K>
  *            O Tipo da Chave primária da Entidade de Negócio a ser persistida.
  */
- abstract class AbstractDAOJPAImpl<T, K> implements IDAO<T, K> {
+ public abstract class AbstractDAOJPAImpl<T, K> implements IDAO<T, K> {
 
 	@PersistenceContext
 	private EntityManager em;
