@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.TipoCanal" table="TTPOCNAL">
+        <id name="codigo" type="java.lang.Long">
+            <column name="CTPOCANAL"  />
+        </id>
+        <property name="descricao" type="java.lang.String">
+            <column name="RTPOCANAL" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.Produto" table="TPRODT" >
+        <id name="codigo" type="java.lang.Integer">
+            <column name="CPRODT"  />
+        </id>    
+        <property name="nomeProduto" type="java.lang.String">
+            <column name="IPRODT"/>
+        </property>
+        <property name="codigoExterno" type="java.lang.Short">
+            <column name="CEXTER" unique="true" />
+        </property>
+  		<many-to-one name="emissao" class="cbss.bean.canonico.Emissao">
+            <column name="CEMIS"/>
+        </many-to-one>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.StatusContrato" table="TSTTUSCONTR">
+        <id name="cogido" type="java.lang.Short">
+            <column name="CSTTUSCONTR"/>
+        </id>
+        <property name="descricao" type="java.lang.String">
+            <column name="RSTTUSCONTR"  />
+        </property>
+        <property name="codigoExterno" type="java.lang.String">
+            <column name="CEXTER" />
+        </property>
+    </class>
+</hibernate-mapping>

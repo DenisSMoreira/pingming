@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.HistSenha" table="THISTSENHA">
+   	        <id name="codHistSenha" type="java.lang.Long">
+   	        
+				<column name="CHISTSENHA" />
+				<generator  class="sequence" >
+					<param name="sequence">SEQ_THISTSENHA_CHISTSENHA</param>
+					
+				</generator>
+			</id>
+			 <property name="senha" type="java.lang.String">
+	            <column name="RSENHA"   />
+	        </property>
+	         <property name="dataAlteracao" type="java.sql.Date">
+	            <column name="DALT"   />
+	        </property>
+ 			 <many-to-one name="login" class="cbss.bean.canonico.Login"  >
+           		 <column name="NCPF"/>
+        	</many-to-one>       
+    </class>
+</hibernate-mapping>    

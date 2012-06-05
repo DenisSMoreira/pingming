@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.AtividadeProfissional" table="TATVDDPROFS" >
+        <id name="codigo" type="java.lang.Integer">
+            <column name="CATVDDPROFS"/>
+        </id>
+        <property name="nomeAtividadeProfissional" type="java.lang.String">
+            <column name="IATVDDPROFS"/>
+        </property>
+    </class>
+</hibernate-mapping>

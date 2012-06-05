@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="cbss.bean.canonico.ListaNegraCadastroPessoaFisica" table="TLISTANEGRACADPSSOAFIS">
+    	
+    	<composite-id name="listaNegraCadastroPessoaFisicaId" class="cbss.bean.canonico.ListaNegraCadastroPessoaFisicaId">
+            <key-property name="numeroCPF" type="java.lang.Long">
+                <column name="NCPF"/>
+            </key-property>
+            <key-property name="inclusaoUsuarioListaNegra" type="java.sql.Timestamp">
+                <column name="HINCLUSUARLISTANEGRA"/>
+            </key-property>
+        </composite-id>
+        
+        <many-to-one name="motivoInclusaoListaNegra" class="cbss.bean.canonico.MotivoInclusaoListaNegra" >
+           <column name="CMOTVOINCLUSUARLISTANEGRA"/>
+        </many-to-one>
+        
+        <many-to-one name="login" class="cbss.bean.canonico.Login" insert="false" update="false">
+            <column name="NCPF" />
+        </many-to-one >
+        
+        <property name="codigoSituacaoListaNegra" type="java.lang.Byte">
+            <column name="CSITLISTANEGRACADPSSOAFIS" />
+        </property>
+
+	</class>
+ </hibernate-mapping>

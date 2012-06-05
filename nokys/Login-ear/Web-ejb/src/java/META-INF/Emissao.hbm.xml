@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.Emissao" table="TEMIS">
+        <id name="codigo" type="java.lang.Long">
+            <column name="CEMIS" />
+        </id>
+        <property name="codigoExterno" type="java.lang.String">
+            <column name="CEXTER"  />
+        </property>
+        <property name="numeroCEP" type="java.lang.Integer">
+            <column name="NUCEP" />
+        </property>
+        <property name="nomeMunicipio" type="java.lang.String">
+            <column name="IMUNIC" />
+        </property>
+        <property name="bairro" type="java.lang.String">
+            <column name="IBAIRRO" />
+        </property>
+        <property name="codigoLogradouro" type="java.lang.Integer">
+            <column name="CLOGDR"  />
+        </property>
+        <property name="codigoTipoLagradouro" type="java.lang.Short">
+            <column name="CTPOLOGDR"  />
+        </property>
+        <property name="descricaoTipoLogradouro" type="java.lang.String">
+            <column name="RTPOLOGDR"  />
+        </property>
+        <property name="nomeLogradouro" type="java.lang.String">
+            <column name="ILOGDR"   />
+        </property>
+        <property name="numeroLogradouro" type="java.lang.String">
+            <column name="NLOGDR" />
+        </property>
+        <property name="enderecoCompleto" type="java.lang.String">
+            <column name="RCOMPLT" />
+        </property>
+        <property name="nomeEmissao" type="java.lang.String">
+            <column name="NEMIS"  />
+        </property>
+        <property name="numeroCNPJ" type="java.lang.Long">
+            <column name="NCNPJ"  />
+        </property>
+        <property name="UF" type="java.lang.String">
+            <column name="RSGLUF"  />
+        </property>       
+    </class>
+</hibernate-mapping>

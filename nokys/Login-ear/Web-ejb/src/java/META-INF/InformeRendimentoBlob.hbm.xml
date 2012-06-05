@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 11/05/2012 16:07:38 by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="cbss.bean.canonico.InformeRendimentoBlob" table="TINFMERENDM" >
+        <composite-id name="id" class="cbss.bean.canonico.InformeRendimentoId">
+            <key-property name="codigo" type="java.lang.Long">
+                <column name="CFLIAL" />
+            </key-property>
+            <key-property name="dataExercicio" type="java.lang.Integer">
+                <column name="DEXERCINFMERENDM"  />
+            </key-property>
+            <key-property name="via" type="java.lang.Integer">
+                <column name="NVIAINFMERENDM"  />
+            </key-property>
+        </composite-id>
+        
+        <property name="dataExercicio" type="java.lang.Integer" insert="false" update="false">
+       		 <column name="DEXERCINFMERENDM"  />
+        </property>
+        
+        <property name="filial" type="java.lang.Long" insert="false" update="false">
+       		 <column name="CFLIAL"  />
+        </property>
+        
+        <property name="dataAnoCalendario" type="java.lang.Integer">
+            <column name="DANOCALEN" />
+        </property>
+        
+         <property name="via" type="java.lang.Integer" insert="false" update="false">
+       	     <column name="NVIAINFMERENDM"  />
+       </property>
+       
+       <property name="blob" type="java.sql.Blob">
+            <column name="RINFRENDM" />
+        </property>
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+    
+    <class name="cbss.bean.canonico.Endereco" table="TENDER">  
+        <id name="codigo" type="java.lang.Long">
+            <column name="CENDER"  />
+        </id>      
+        <property name="logradouro" type="java.lang.String">
+            <column name="ILOGDR"   />
+        </property>
+        <property name="numero" type="java.lang.String">
+            <column name="NLOGDR" />
+        </property>
+        <property name="complemento" type="java.lang.String">
+            <column name="RCOMPLT" />
+        </property>
+        <property name="bairro" type="java.lang.String">
+            <column name="IBAIRRO" />
+        </property>
+        <property name="caixaPostal" type="java.lang.String">
+            <column name="NCXPSTAL" />
+        </property>
+        <property name="cepCaixaPostal" type="java.lang.Integer">
+            <column name="NCEPCXPSTAL" />
+        </property>
+        <property name="municipio" type="java.lang.String">
+            <column name="IMUNIC" />
+        </property>
+        <property name="cep" type="java.lang.Integer">
+            <column name="NUCEP"  />
+        </property>
+        <property name="tipoLogradouro" type="java.lang.String">
+            <column name="RTPOLOGDR"  />
+        </property>
+        <property name="uf" type="java.lang.String">
+            <column name="RSGLUF"/>
+        </property>
+        <property name="codigoLogradouro" type="java.lang.Integer">
+            <column name="CLOGDR"  />
+        </property>
+        <property name="codigoTipoLogradouro" type="java.lang.Short">
+            <column name="CTPOLOGDR"  />
+        </property>
+        
+    </class>
+
+</hibernate-mapping>
