@@ -10,7 +10,6 @@
 	<bean name="/autenticacao/login"
 		class="cbss.login.apresentacao.autenticacao.LoginAutenticacaoAction">
 		<property name="autenticadorService" ref="autenticadorService" />
-		<property name="parametrizacaoService" ref="parametrizacaoService" />
 	</bean>
 	
 	<bean name="/autenticacao/senha"
@@ -18,21 +17,14 @@
 		<property name="loginService" ref="loginServiceEJB" />
 		<property name="autenticadorService" ref="autenticadorService" />
 		<property name="perfilInfraService" ref="perfilInfraService" />
-		<property name="parametrizacaoService" ref="parametrizacaoService" />
-		<property name="loggerService" ref="loggerService" />
+
 	</bean>
-	
-	<bean name="/autenticacao/mensagem" 
-		 class="cbss.login.apresentacao.autenticacao.MensagemAutenticacaoAction" />
-	
-	
+		
 	<bean name="/autenticacao/home"
 		class="cbss.login.apresentacao.autenticacao.AutenticacaoAction">
 		<property name="perfilService" ref="perfilServiceEJB" />
 		<property name="loginService" ref="loginServiceEJB" />
 		<property name="perfilInfraService" ref="perfilInfraService" />
-		<property name="parametrizacaoService" ref="parametrizacaoService" />
-		<property name="loggerService" ref="loggerService" />
 	</bean>
 
 </beans>

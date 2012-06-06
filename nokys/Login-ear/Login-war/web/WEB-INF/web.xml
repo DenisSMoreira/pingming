@@ -1,226 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app id="CBSSLOGIN" version="2.5"
-	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
-	<display-name>CBSSLOGIN</display-name>
-
-	<!-- context-params -->
-
-	<context-param>
-		<param-name>contextConfigLocation</param-name>
-		<param-value>
-	classpath*:config/applicationContext-perfil-infra.xml
-	classpath*:config/applicationContext-parametrizacao.xml
-	classpath*:config/applicationContext-logger.xml
-	/WEB-INF/config/comum/applicationContext.xml
-	/WEB-INF/config/applicationContext-properties.xml
-	/WEB-INF/config/applicationContext-controleAcesso.xml	
-	/WEB-INF/config/autenticacao/applicationContext-autenticacao.xml
-	/WEB-INF/config/cadastrarsenha/applicationContext-cadastrarsenha.xml
-	/WEB-INF/config/alterarsenha/applicationContext-alterarsenha.xml
-	/WEB-INF/config/recuperarsenha/applicationContext-recuperarsenha.xml
-	/WEB-INF/config/desbloquearsenha/applicationContext-desbloquearsenha.xml
-	/WEB-INF/config/homeinstitucional/applicationContext-homeinstitucional.xml
-	/WEB-INF/config/applicationContext-url.xml
-	classpath*:config/applicationContext-filtro.xml
-	classpath*:config/applicationContext-operacao.xml
-	classpath*:config/applicationContext-sessao.xml
-	classpath*:config/applicationContext-criptografia.xml
-	classpath*:config/applicationContext-autenticador.xml	
-	classpath*:config/applicationContext-controleAcesso.xml	
-	classpath*:config/applicationContext-mensagem.xml	
-	
-	</param-value>
-	</context-param>
-        <context-param>
-            <param-name>javax.faces.CONFIG_FILES</param-name>
-            <param-value>/WEB-INF/faces-config.xml,/WEB-INF/faces-navigation-config.xml,/WEB-INF/faces-managed-beans-config.xml</param-value>
-        </context-param>
-	<!-- filtros -->
-	<filter>
-		<filter-name>filterChainProxy</filter-name>
-		<filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
-	</filter>
-
-	<filter-mapping>
-		<filter-name>filterChainProxy</filter-name>
-		<url-pattern>/*</url-pattern>
-	</filter-mapping>
-
-	<!-- listeners -->
-
-	<listener>
-		<listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-	</listener>
-
-
-
-
-	<!-- Inicializador -->
-
-	<servlet>
-		<servlet-name>ServletInit</servlet-name>
-		<servlet-class>cbss.apresentacao.ServletInit</servlet-class>
-		<load-on-startup>100</load-on-startup>
-	</servlet>
-
-	<!-- Standard Action Servlet Configuration (with debugging) -->
-
-	<servlet>
-		<servlet-name>action</servlet-name>
-		<servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
-		<init-param>
-			<param-name>config</param-name>
-			<param-value>
-      /WEB-INF/config/comum/struts-config.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>config/autenticacao</param-name>
-			<param-value>
-      /WEB-INF/config/autenticacao/struts-autenticacao.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>config/cadastrarsenha</param-name>
-			<param-value>
-      /WEB-INF/config/cadastrarsenha/struts-cadastrarsenha.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>config/alterarsenha</param-name>
-			<param-value>
-      /WEB-INF/config/alterarsenha/struts-alterarsenha.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>config/recuperarsenha</param-name>
-			<param-value>
-      /WEB-INF/config/recuperarsenha/struts-recuperarsenha.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>config/desbloquearsenha</param-name>
-			<param-value>
-      /WEB-INF/config/desbloquearsenha/struts-desbloquearsenha.xml
-      </param-value>
-		</init-param>
-		
-			<init-param>
-			<param-name>config/homeinstitucional</param-name>
-			<param-value>
-     		 /WEB-INF/config/homeinstitucional/struts-homeinstitucional.xml
-      </param-value>
-		</init-param>
-
-		<init-param>
-			<param-name>tiles-definitions</param-name>
-			<param-value>
-      /WEB-INF/config/comum/tiles-defs.xml,
-      /WEB-INF/config/autenticacao/tiles-defs-autenticacao.xml,
-      /WEB-INF/config/cadastrarsenha/tiles-defs-cadastrarsenha.xml,
-      /WEB-INF/config/alterarsenha/tiles-defs-alterarsenha.xml,
-      /WEB-INF/config/recuperarsenha/tiles-defs-recuperarsenha.xml,
-      /WEB-INF/config/homeinstitucional/tiles-defs-homeinstitucional.xml,
-      /WEB-INF/config/desbloquearsenha/tiles-defs-desbloquearsenha.xml
-   
-      </param-value>
-		</init-param>
-		<init-param>
-			<param-name>debug</param-name>
-			<param-value>2</param-value>
-		</init-param>
-		<init-param>
-			<param-name>detail</param-name>
-			<param-value>2</param-value>
-		</init-param>
-		<load-on-startup>2</load-on-startup>
-	</servlet>
-
-	<!-- Standard Action Servlet Mapping -->
-
-	<servlet-mapping>
-		<servlet-name>action</servlet-name>
-		<url-pattern>*.do</url-pattern>
-	</servlet-mapping>
-
-	<session-config>
-		<session-timeout>30</session-timeout>
-	</session-config>
-
-
-
-	<resource-ref>
-		<res-ref-name>jdbc/AppDataSource</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-		<res-sharing-scope>Shareable</res-sharing-scope>
-	</resource-ref>
-
-	<resource-ref>
-		<res-ref-name>jdbc/Infra</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-		<res-sharing-scope>Shareable</res-sharing-scope>
-	</resource-ref>
-
-	<resource-ref>
-		<res-ref-name>jdbc/Mensagem</res-ref-name>
-		<res-type>javax.sql.DataSource</res-type>
-		<res-auth>Container</res-auth>
-		<res-sharing-scope>Shareable</res-sharing-scope>
-	</resource-ref>
-	
-	<env-entry>
-		<env-entry-name>componentes/propFile</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>/cbssapps/cbssconfig/comum/</env-entry-value>
-	</env-entry>
-
-	<env-entry>
-		<env-entry-name>log/propFile</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>/cbssapps/cbssconfig/aplicativos/cbsslogin/config/</env-entry-value>
-	</env-entry>
-
-	<env-entry>
-		<env-entry-name>application.properties</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>file:/cbssapps/cbssconfig/aplicativos/cbsslogin/config/application.properties</env-entry-value>
-	</env-entry>
-
-	<env-entry>
-		<env-entry-name>infra.properties</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>file:/cbssapps/cbssconfig/comum/Infra.properties</env-entry-value>
-	</env-entry>
-
-	<env-entry>
-		<env-entry-name>ambiente.properties</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>file:/cbssapps/cbssconfig/comum/Ambiente.properties</env-entry-value>
-	</env-entry>
-	<env-entry>
-		<env-entry-name>environmentParameter</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>environmentConfig</env-entry-value>
-	</env-entry>
-	<env-entry>
-		<env-entry-name>variablePreExternalLocation</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>apps.config</env-entry-value>
-	</env-entry>
-	<env-entry>
-		<env-entry-name>xmlLocationLog</env-entry-name>
-		<env-entry-type>java.lang.String</env-entry-type>
-		<env-entry-value>/cbssapps/cbssconfig/aplicativos/cbsslogin/config</env-entry-value>
-	</env-entry>
-
+<web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>/WEB-INF/faces-config.xml,/WEB-INF/faces-navigation-config.xml,/WEB-INF/faces-managed-beans-config.xml</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.jsf</url-pattern>
+    </servlet-mapping>
+    
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    
+    <welcome-file-list>
+        <welcome-file>index.jsf</welcome-file>
+    </welcome-file-list>
+    
 </web-app>
-
-
