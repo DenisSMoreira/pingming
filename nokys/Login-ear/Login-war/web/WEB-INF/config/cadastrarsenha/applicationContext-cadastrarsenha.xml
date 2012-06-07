@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	
+	<!--
+	Para integração com struts, quando configurada uma Action /xxx, deverá
+	ser criado um bean com "NAME=xxx" (Atenção: o bean deverá definir name e não id)
+	-->
+
+	<bean name="/cadastrarsenha/dados"
+			class="cbss.login.apresentacao.cadastrarsenha.DadosCadastrarSenhaAction">
+			<property name="autenticadorService" ref="autenticadorService"/>
+			<property name="perguntaService" ref="perguntaSecretaServiceEJB"/>
+	</bean>
+	<bean name="/cadastrarsenha/novasenha"
+			class="cbss.login.apresentacao.cadastrarsenha.NovaSenhaCadastrarSenhaAction">
+		<property name="interlocutorService" ref="interlocutorServiceEJB"/>
+		<property name="perguntaSecretaService" ref="perguntaSecretaServiceEJB"/>
+		<property name="autenticadorService" ref="autenticadorService"/>
+		<property name="loginService" ref="loginServiceEJB"/>
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="perfilInfraService" ref="perfilInfraService" />
+	</bean>
+	<bean name="/cadastrarsenha/termoaceite"
+			class="cbss.login.apresentacao.cadastrarsenha.TermoAceiteCadastrarSenhaAction">
+		<property name="loginService" ref="loginServiceEJB"/>
+	</bean>
+	
+	<bean name="/cadastrarsenha/exportarTermoaceite"
+			class="cbss.login.apresentacao.cadastrarsenha.ExportarTermoAceiteAction">
+	</bean>
+	
+	<bean name="/cadastrarsenha/emailenviado"
+			class="cbss.login.apresentacao.cadastrarsenha.EmailEnviadoCadastrarSenhaAction">		
+		<property name="loginService" ref="loginServiceEJB"/>
+		<property name="interlocutorService" ref="interlocutorServiceEJB"/>
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+			<property name="perfilInfraService" ref="perfilInfraService" />
+			<property name="aceiteTermoService" ref="aceiteTermoServiceEJB"/>
+	</bean>
+	<bean name="/cadastrarsenha/sucesso"
+			class="cbss.login.apresentacao.cadastrarsenha.SucessoCadastrarSenhaAction">
+		<property name="loginService" ref="loginServiceEJB"/>
+		<property name="loggerService" ref="loggerService" />
+	</bean>
+
+</beans>
