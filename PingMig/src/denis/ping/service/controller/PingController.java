@@ -97,13 +97,13 @@ public final class PingController extends Thread {
                         tempo = buff.substring(buff.indexOf(ConstantsSystem.CMD_TIME) + EnumConst.SEIS.val(), buff.indexOf(ConstantsSystem.CMD_TTL) - EnumConst.UM.val());
                         ttl = buff.substring(buff.indexOf(ConstantsSystem.CMD_TTL) + EnumConst.QUATRO.val());
                         ttl = ttl.substring(EnumConst.ZERO.val(), buff.indexOf(ConstantsSystem.ESPACO) - EnumConst.TRES.val());
-                        menuView.alteraStatus(bStatus, bytes, tempo, ttl);
+                        menuView.alteraStatus(bStatus, bytes, tempo, ttl, beanConf);
                     }
                     buffer = new byte[EnumConst.MIL_VINTE_QUATRO.val()];
                 }
             }
 
-            menuView.alteraStatus(bStatus, bytes, tempo, ttl);
+            menuView.alteraStatus(bStatus, bytes, tempo, ttl, beanConf);
             return bStatus;
         } catch (Exception e) {
             return false;

@@ -54,7 +54,7 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
     private static final String _TEMPO_ = " | Tempo ";
     private static final String _TTL_ = " | TTL ";
     private  DefaultTableModel moldelTable = null;
-
+    private int LinhaSelecionada = 0;
     private PingController ping = null;
     private final PopUpIcon popup = new PopUpIcon(this);
     private BeanConfig bean = new BeanConfig();
@@ -376,6 +376,7 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
         start.setEnabled(true);
         stop.setEnabled(false);
         trayIcon.setImage(imageIcon);
+        alterarStattusTable( new BeanConfig() );
     }//GEN-LAST:event_stopActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -427,10 +428,12 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
      * @param tempo tempo
      * @param ttl ttl
      */
-    public final void alteraStatus(boolean varStat, String bytes, String tempo, String ttl) {
+    public final void alteraStatus(boolean varStat, String bytes, String tempo, String ttl , BeanConfig beanConf) {
 
         if (varStat) {
-
+            beanConf.setStattus("Online");
+            preencherDadosTable(beanConf);
+       
             pingView.setText(_BYTES_ + bytes + _TEMPO_ + tempo + _TTL_ + ttl);
             start.setEnabled(false);
             carregando.setIcon(new ImageIcon(getClass().getResource(CARREGANDOGIF)));
@@ -444,7 +447,7 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
             stop.setEnabled(true);
             trayIcon.setImage(imageIconOn);
             nMinErros = 0;
-
+            
         } else {
             nMinErros++;
             if (nMinErros >= EnumConst.NOVE.val()) {
@@ -453,7 +456,8 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
                     trayIcon.displayMessage(STATUS_VPN,NÃO_FOI_POSSIVEL_CONECTAR_A_VPN,
                             TrayIcon.MessageType.ERROR);
                 }
-
+                beanConf.setStattus("Offline");
+                preencherDadosTable(beanConf);
                 pingView.setText(BYTES_TEMPO_TTL);
                 status.setFont(new java.awt.Font(FONTE_WICKENDEN_CAFE_NDP, 1, 24));
                 status.setForeground(new java.awt.Color(204, 51, 0));
@@ -476,9 +480,27 @@ public final class SuperGerenciadorPing extends javax.swing.JFrame {
     }
 
      public int preencherDadosTable(BeanConfig config){
+         if(config.getId() == 0){
          moldelTable = (DefaultTableModel) jTable1.getModel();
          moldelTable.setNumRows(0);
          moldelTable.addRow(new Object[]{config.getHostVpn(), config.getTimeOut(), config.getStattus()});
+         config.setId(moldelTable.getRowCount());
+         LinhaSelecionada = config.getId();
          return moldelTable.getRowCount();
+         
+         }else{
+             alterarStattusTable(config);
+         }
+         
+       return moldelTable.getRowCount();
+      
+   }
+     
+   public void alterarStattusTable(BeanConfig config){
+   
+           moldelTable.setValueAt(config.getHostVpn(), config.getId(), 0);
+           moldelTable.setValueAt(config.getTimeOut(), config.getId(), 1);
+           moldelTable.setValueAt(config.getStattus(), config.getId(), 2);
+
    }
 }
