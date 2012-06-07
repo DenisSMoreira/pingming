@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:jee="http://www.springframework.org/schema/jee"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/jee http://www.springframework.org/schema/jee/spring-jee-3.0.xsd">
+
+
+	<jee:remote-slsb id="controleAcessoFacade"
+		jndi-name="ControleAcessoFacade/Remote"
+		business-interface="cbss.controleacesso.IControleAcessoSessionFacade" />
+
+
+	<bean id="interlocutorServiceEJB" class="cbss.login.ejb.adapters.InterlocutorServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>	
+	<bean id="loginServiceEJB" class="cbss.login.ejb.adapters.LoginServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>
+	<bean id="perfilServiceEJB" class="cbss.login.ejb.adapters.PerfilServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>
+	<bean id="perguntaSecretaServiceEJB" class="cbss.login.ejb.adapters.PerguntaSecretaServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>
+	<bean id="regraSenhaServiceEJB" class="cbss.login.ejb.adapters.RegraSenhaServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>
+	<bean id="aceiteTermoServiceEJB" class="cbss.login.ejb.adapters.AceiteTermoServiceAdapter">
+		<property name="controleAcessoSessionFacade" ref="controleAcessoFacade"/>
+	</bean>
+
+	<bean id="mensagemService" class="cbss.mensagem.impl.MensagemServiceImpl"></bean>
+	
+</beans>
