@@ -8,20 +8,15 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
 
     <managed-bean>
-        <description>
-	   Managed Bean para o serviço de login
-	</description>
-        <managed-bean-name>LoginBean</managed-bean-name>
-        <managed-bean-class>
-            br.com.web.aplication.system.view.bean.LoginBean
-        </managed-bean-class>
-        <managed-bean-scope>request</managed-bean-scope>
-        
-        <managed-property>
-		<property-name>LoginService</property-name>
-		<property-class>br.com.web.aplication.system.service.business.login.LoginService</property-class>
-		<value>#{loginService}</value>
-	</managed-property>
+        <managed-bean-name>redirecionamento</managed-bean-name>
+        <managed-bean-class>web.login.autenticacao.view.Redirecionamento</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>        
+    </managed-bean>
+    
+   <managed-bean>
+        <managed-bean-name>autenticacao</managed-bean-name>
+        <managed-bean-class>web.login.autenticacao.view.Autenticacao</managed-bean-class>
+        <managed-bean-scope>request</managed-bean-scope>        
     </managed-bean>
 
 </faces-config>

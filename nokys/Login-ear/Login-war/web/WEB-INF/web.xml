@@ -6,27 +6,23 @@
     </context-param>
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-config.xml,/WEB-INF/faces-navigation-config.xml,/WEB-INF/faces-managed-beans-config.xml,
-            /WEB-INF/newfaces-config1.xml</param-value>
+        <param-value>/WEB-INF/faces-navigation-config.xml,/WEB-INF/faces-config.xml,/WEB-INF/faces-managed-beans-config.xml</param-value>
     </context-param>
-    
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>1</load-on-startup>
+        <load-on-startup>0</load-on-startup>
     </servlet>
-    
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
-
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>login.jsf</welcome-file>
+        <welcome-file>/autenticacao.jsf</welcome-file>
     </welcome-file-list>
 </web-app>

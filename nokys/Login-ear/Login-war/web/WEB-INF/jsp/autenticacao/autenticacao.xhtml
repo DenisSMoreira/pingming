@@ -1,0 +1,56 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Teste</title>
+    </h:head>
+
+    <h:body>
+	<p:ajaxStatus style="width:16px;height:16px;" id="ajaxStatusPanel">  
+    <f:facet name="start">  
+       Carregando....  
+    </f:facet>  
+      
+    <f:facet name="complete">  
+        <h:outputText value="" />  
+    </f:facet>  
+</p:ajaxStatus>  
+          
+<h:form id="form">  
+  
+    <p:panel id="panel" header="Ajax Status">  
+  
+        <p:messages id="msgs"/>  
+          
+        <h:panelGrid columns="3" cellpadding="5">  
+            <h:outputLabel for="firstname" value="Firstname: *" />  
+            <p:inputText id="firstname"   
+                    value="#{autenticacao.firstname}"   
+                    required="true" label="Firstname">  
+                <f:validateLength minimum="2" />  
+            </p:inputText>  
+            <p:message for="firstname" />  
+              
+            <h:outputLabel for="surname" value="Surname: *" />  
+            <p:inputText id="surname"   
+                    value="#{autenticacao.surname}"   
+                    required="true" label="Surname"/>  
+            <p:message for="surname" />  
+  
+        </h:panelGrid>  
+          
+        <p:commandButton value="Global" update="panel"   
+                actionListener="#{autenticacao.savePerson}"   
+                id="btnGlobal" />  
+        <p:commandButton value="Non-Global" update="panel"   
+                actionListener="#{autenticacao.savePerson}"   
+                id="btnNonGlobal"   
+                global="false" style="margin-left:5px"/>  
+  
+    </p:panel>  
+      
+</h:form>  					
+    </h:body>
+</html>
+

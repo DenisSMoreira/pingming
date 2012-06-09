@@ -8,12 +8,5 @@
     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_2_1.xsd">
 
 
-   <application>
-      
-		<locale-config>
-			<default-locale>pt</default-locale>
-		</locale-config>
-		<message-bundle>web.resource.AutenticacaoResources</message-bundle>
-                <var>AutenticacaoResources</var>
-    </application>
+
 </faces-config>
