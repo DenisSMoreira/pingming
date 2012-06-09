@@ -9,8 +9,7 @@
 
 
    <application>
-        <view-handler>org.apache.myfaces.view.facelets.tag.jsf.core.ViewHandler</view-handler>
-   	<variable-resolver>org.springframework.web.jsf.DelegatingVariableResolver</variable-resolver>
+      
 		<locale-config>
 			<default-locale>pt</default-locale>
 		</locale-config>
