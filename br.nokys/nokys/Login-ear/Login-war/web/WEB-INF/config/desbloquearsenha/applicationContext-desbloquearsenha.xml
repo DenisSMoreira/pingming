@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!--
+	Para integração com struts, quando configurada uma Action /xxx, deverá
+	ser criado um bean com "NAME=xxx" (Atenção: o bean deverá definir name e não id)
+	-->
+
+	<bean name="/desbloquearsenha/verificaSenha"
+			class="cbss.util.VerificaSenhaAjaxAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />	
+		<property name="loginService" ref="loginServiceEJB"/>	
+	</bean>
+	<bean name="/desbloquearsenha/dados"
+			class="cbss.login.apresentacao.desbloquearsenha.DadosEntradaDesbloquearSenhaAction">
+		<property name="autenticadorService" ref="autenticadorService"/> 
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+
+	</bean>
+	<bean name="/desbloquearsenha/dadospergunta"
+		      class="cbss.login.apresentacao.desbloquearsenha.DadosPerguntaDesbloquearSenhaAction">
+		<property name="interlocutorService" ref="interlocutorServiceEJB"/>
+		<property name="loginService" ref="loginServiceEJB"/>
+		<property name="perguntaService" ref="perguntaSecretaServiceEJB"/>
+		<property name="autenticadorService" ref="autenticadorService"/> 
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="perfilInfraService" ref="perfilInfraService" />
+	</bean>
+	<bean name="/desbloquearsenha/novasenha"
+			class="cbss.login.apresentacao.desbloquearsenha.NovaSenhaDesbloquearSenhaAction">
+		<property name="loginService" ref="loginServiceEJB"/>
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="perguntaService" ref="perguntaSecretaServiceEJB"/>
+	</bean>
+	<bean name="/desbloquearsenha/sucesso"
+			class="cbss.login.apresentacao.desbloquearsenha.SucessoDesbloquearSenhaAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="loginService" ref="loginServiceEJB"/>
+	</bean>
+    
+</beans>

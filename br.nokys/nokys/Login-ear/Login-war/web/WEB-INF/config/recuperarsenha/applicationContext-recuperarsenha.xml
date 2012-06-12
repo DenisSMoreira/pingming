@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!--
+	Para integração com struts, quando configurada uma Action /xxx, deverá
+	ser criado um bean com "NAME=xxx" (Atenção: o bean deverá definir name e não id)
+	-->
+	
+	<bean name="/recuperarsenha/verificaSenha"
+			class="cbss.util.VerificaSenhaAjaxAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="loginService" ref="loginServiceEJB"/>	
+	</bean>	
+	<bean name="/recuperarsenha/dados"
+			class="cbss.login.apresentacao.recuperarsenha.DadosEntradaRecuperarSenhaAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+		<property name="autenticadorService" ref="autenticadorService"/> 
+	</bean>
+	<bean name="/recuperarsenha/pergunta"
+			class="cbss.login.apresentacao.recuperarsenha.DadosPerguntaRecuperarSenhaAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+        <property name="interlocutorService" ref="interlocutorServiceEJB"/>
+        <property name="loginService" ref="loginServiceEJB"/>
+        <property name="perguntaService" ref="perguntaSecretaServiceEJB"/>
+		<property name="autenticadorService" ref="autenticadorService"/> 
+		<property name="perfilInfraService" ref="perfilInfraService" />
+	</bean>
+	<bean name="/recuperarsenha/novasenha"
+			class="cbss.login.apresentacao.recuperarsenha.NovaSenhaRecuperarSenhaAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+        <property name="loginService" ref="loginServiceEJB"/>
+        <property name="perguntaService" ref="perguntaSecretaServiceEJB"/>
+	</bean>
+	<bean name="/recuperarsenha/sucesso"
+			class="cbss.login.apresentacao.recuperarsenha.SucRecuperarSenhaAction">
+		<property name="parametrizacaoService" ref="parametrizacaoService" />
+        <property name="loginService" ref="loginServiceEJB"/>
+        <property name="loggerService" ref="loggerService" />
+        <property name="perfilInfraService" ref="perfilInfraService" />
+	</bean>
+	
+</beans>

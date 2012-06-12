@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+	<!-- Para integração com struts, quando configurada uma Action /xxx, deverá 
+		ser criado um bean com "NAME=xxx" (Atenção: o bean deverá definir name e 
+		não id) -->
+
+	<bean name="/autenticacao/login"
+		class="cbss.login.apresentacao.autenticacao.LoginAutenticacaoAction">
+		<property name="autenticadorService" ref="autenticadorService" />
+	</bean>
+	
+	<bean name="/autenticacao/senha"
+		class="cbss.login.apresentacao.autenticacao.SenhaAutenticacaoAction">
+		<property name="loginService" ref="loginServiceEJB" />
+		<property name="autenticadorService" ref="autenticadorService" />
+		<property name="perfilInfraService" ref="perfilInfraService" />
+
+	</bean>
+		
+	<bean name="/autenticacao/home"
+		class="cbss.login.apresentacao.autenticacao.AutenticacaoAction">
+		<property name="perfilService" ref="perfilServiceEJB" />
+		<property name="loginService" ref="loginServiceEJB" />
+		<property name="perfilInfraService" ref="perfilInfraService" />
+	</bean>
+
+</beans>
