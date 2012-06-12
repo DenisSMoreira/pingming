@@ -6,23 +6,24 @@
     </context-param>
     <context-param>
         <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-navigation-config.xml,/WEB-INF/faces-config.xml,/WEB-INF/faces-managed-beans-config.xml</param-value>
+        <param-value>/WEB-INF/faces-navigation.xml</param-value>
     </context-param>
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-        <load-on-startup>0</load-on-startup>
     </servlet>
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>*.jsf</url-pattern>
     </servlet-mapping>
+    <context-param>
+        <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
+        <param-value>.xhtml</param-value>
+    </context-param>
     <session-config>
-        <session-timeout>
-            30
-        </session-timeout>
+        <session-timeout>15</session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>/autenticacao.jsf</welcome-file>
+        <welcome-file>/Autenticacao.jsf</welcome-file>
     </welcome-file-list>
 </web-app>

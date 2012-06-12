@@ -19,35 +19,36 @@
           
 <h:form id="form">  
   
-    <p:panel id="panel" header="Ajax Status">  
+    <p:panel id="panel" header="Login"  >  
   
         <p:messages id="msgs"/>  
           
         <h:panelGrid columns="3" cellpadding="5">  
-            <h:outputLabel for="firstname" value="Firstname: *" />  
+            <h:outputLabel for="firstname" value="Usuario: *" />  
             <p:inputText id="firstname"   
-                    value="#{autenticacao.firstname}"   
+                    value="#{autenticacao.usuario}"   
                     required="true" label="Firstname">  
-                <f:validateLength minimum="2" />  
+                <f:validateLength minimum="5" />  
             </p:inputText>  
             <p:message for="firstname" />  
               
-            <h:outputLabel for="surname" value="Surname: *" />  
-            <p:inputText id="surname"   
-                    value="#{autenticacao.surname}"   
-                    required="true" label="Surname"/>  
+            <h:outputLabel for="surname" value="Senha: *" />  
+            <p:password id="surname" value="#{autenticacao.senha}" label="Surname">
+                <f:validateLength minimum="5" /> 
+            </p:password>  
             <p:message for="surname" />  
-  
+           
         </h:panelGrid>  
-          
-        <p:commandButton value="Global" update="panel"   
-                actionListener="#{autenticacao.savePerson}"   
+           
+        <p:commandButton value="Entrar" update="panel"   
+                actionListener="#{autenticacao.login}"   
                 id="btnGlobal" />  
-        <p:commandButton value="Non-Global" update="panel"   
+        <p:commandButton value="Sair" update="panel"   
                 actionListener="#{autenticacao.savePerson}"   
                 id="btnNonGlobal"   
-                global="false" style="margin-left:5px"/>  
-  
+                global="false" style="margin-left:5px"/> 
+        
+        <h:commandLink value="Esqueceu sua senha?" style="font-size: small; margin-top: 30px" />  
     </p:panel>  
       
 </h:form>  					
