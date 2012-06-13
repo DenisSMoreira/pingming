@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Scene Scope="All Faces Configurations" version="2">
-    <Scope Scope="Faces Configuration Only"/>
-    <Scope Scope="Project"/>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only">
+        <Node id="CadastrarSenha.xhtml" x="400" y="150" zoom="true"/>
+    </Scope>
+    <Scope Scope="Project">
+        <Node id="WEB-INF/jsp/cadastrarsenha/CadastrarSenha.xhtml" x="52" y="360" zoom="false"/>
+        <Node id="Autenticacao.xhtml" x="139" y="181" zoom="true"/>
+        <Node id="*" x="170" y="29" zoom="false"/>
+    </Scope>
     <Scope Scope="All Faces Configurations">
-        <Node id="Autenticacao.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="CadastrarSenha.xhtml" x="150" y="150" zoom="true"/>
     </Scope>
 </Scene>

@@ -5,17 +5,18 @@
 package web.login.autenticacao.view;
 
 import java.io.Serializable;
-import javax.faces.application.FacesMessage;  
+ 
 
 
 
+
+import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
-import javax.faces.context.FacesContext;  
-import javax.faces.event.ActionEvent;  
+
+
   
 @ManagedBean(name = "autenticacao") 
-@ViewScoped
+@ApplicationScoped
 public class Autenticacao implements Serializable{
     private static final long serialVersionUID = 1L;
   
@@ -25,10 +26,15 @@ public class Autenticacao implements Serializable{
   
  
       
-    public void savePerson(ActionEvent actionEvent) {  
-         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Bem Vindo " + usuario + "!"));  
-
+    public String savePerson() {  
+       
+         return "/WEB-INF/jsp/cadastrarsenha/CadastrarSenha.xhtml";
     }
+      public String login() {  
+       
+         return "autenticacao";
+    }
+    
 
     /**
      * @return the usuario
