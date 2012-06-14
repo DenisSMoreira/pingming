@@ -24,7 +24,7 @@ public class Autenticacao implements Serializable{
            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + usuario +"!")); 
            
        }else{
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro:", "Usuario ou senha inválida"));  
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro: ", "Usuario ou senha inválida"));  
      }
         
     }
