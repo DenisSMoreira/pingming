@@ -8,7 +8,7 @@ import java.sql.Date;
  * Classe BEAN Interlocutor
  *
  */
-public class Interlocutor implements java.io.Serializable {
+public class Estudante implements java.io.Serializable {
     /**
 	 * 
 	 */
@@ -17,7 +17,7 @@ public class Interlocutor implements java.io.Serializable {
     /**
      * Atributo codInterlocutor Codigo do Interlocutor
      */
-    private Long codigoInterlocutor;
+    private Long codigo;
   
     /**
      * 
@@ -501,15 +501,15 @@ public class Interlocutor implements java.io.Serializable {
 	/**
 	 * @return the codigoInterlocutor
 	 */
-	public Long getCodigoInterlocutor() {
-		return codigoInterlocutor;
+	public Long getCodigo() {
+		return codigo;
 	}
 
 	/**
 	 * @param codigoInterlocutor the codigoInterlocutor to set
 	 */
-	public void setCodigoInterlocutor(Long codigoInterlocutor) {
-		this.codigoInterlocutor = codigoInterlocutor;
+	public void setCodigo(Long codigo) {
+		this.codigo = codigo;
 	}
 
 	/**

@@ -19,7 +19,7 @@ public class Login implements java.io.Serializable {
     private Integer qtdTentativasAcesso;
     private Date dataUltimaAlteracaoSenha;
     private Boolean flagExclusao;
-    private Interlocutor interlocutor;
+    private Funcionario funcionario;
     
     public Login(){
         
@@ -152,12 +152,12 @@ public class Login implements java.io.Serializable {
     }
 
 
-	public void setInterlocutor(Interlocutor interlocutor) {
-		this.interlocutor = interlocutor;
+	public void setFuncionario(Funcionario funcionario) {
+		this.funcionario = funcionario;
 	}
 
-	public Interlocutor getInterlocutor() {
-		return interlocutor;
+	public Funcionario getFuncionario() {
+		return funcionario;
 	}
 
 
