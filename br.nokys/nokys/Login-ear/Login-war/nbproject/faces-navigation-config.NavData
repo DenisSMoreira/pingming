@@ -2,25 +2,25 @@
 <Scene Scope="All Faces Configurations" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="Autenticacao.xhtml" x="1497" y="32" zoom="true"/>
         <Node id="RecuperarSenhaConclusao.xhtml" x="2077" y="32" zoom="true"/>
+        <Node id="Autenticacao.xhtml" x="1497" y="32" zoom="true"/>
         <Node id="homeFake.xhtml" x="3198" y="32" zoom="true"/>
         <Node id="CadastrarSenha.xhtml" x="1778" y="32" zoom="true"/>
         <Node id="*" x="4433" y="32" zoom="true"/>
-        <Node id="RecuperarSenha.xhtml" x="3463" y="32" zoom="true"/>
         <Node id="AlterarSenhaConclusacao.xhtml" x="767" y="32" zoom="true"/>
+        <Node id="RecuperarSenha.xhtml" x="3463" y="32" zoom="true"/>
         <Node id="AlterarSenha.xhtml" x="4625" y="32" zoom="true"/>
         <Node id="DesbloquearSenha.xhtml" x="3765" y="32" zoom="true"/>
-        <Node id="CadastrarSenhaConclusao.xhtml" x="34" y="32" zoom="true"/>
         <Node id="AlterarSenhaConfirmacao.xhtml" x="4079" y="32" zoom="true"/>
+        <Node id="CadastrarSenhaConclusao.xhtml" x="34" y="32" zoom="true"/>
         <Node id="DesbloquearSenhaConfirmacao.xhtml" x="2439" y="32" zoom="true"/>
         <Node id="CadastrarSenhaConfirmacao.xhtml" x="2826" y="32" zoom="true"/>
         <Node id="RecuperarSenhaConfirmacao.xhtml" x="1122" y="32" zoom="true"/>
         <Node id="DesbloquearSenhaConclusao.xhtml" x="393" y="32" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations">
-        <Node id="Autenticacao.xhtml" x="169" y="16" zoom="true"/>
         <Node id="RecuperarSenhaConclusao.xhtml" x="660" y="523" zoom="true"/>
+        <Node id="Autenticacao.xhtml" x="169" y="16" zoom="true"/>
         <Node id="homeFake.xhtml" x="434" y="105" zoom="true"/>
         <Node id="CadastrarSenha.xhtml" x="347" y="512" zoom="true"/>
         <Node id="*" x="185" y="-125" zoom="true"/>
