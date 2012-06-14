@@ -1,9 +1,3 @@
-
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
-<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
       xmlns:p="http://primefaces.org/ui"
@@ -43,17 +37,19 @@ and open the template in the editor.
               
             <h:outputLabel for="senha" value="Senha: *" />  
             <p:password id="senha" value="#{autenticacao.senha}" label="Senha" required="true" >  <f:validateLength minimum="6" />  </p:password>  
-            <p:message for="senha"  />  
+            <p:message for="senha" />  
            
         </h:panelGrid>  
            
         <p:commandButton value="Entrar"   
-                actionListener="#{autenticacao.login}"   
-                id="btnGlobal" global="false"  update="panel" />  
+                action="#{autenticacao.savePerson}"   
+                id="btnGlobal"/>  
+        <p:commandButton value="Sair" update="panel"   
+                actionListener="#{autenticacao.savePerson}"   
+                id="btnNonGlobal"   
+                global="false" style="margin-left:5px"/> 
         
-        <p:commandButton value="Sair" style="margin-left:5px"/> 
-        
-        <h:commandLink value="Esqueceu sua senha?" action="#{autenticacao.recuperar}" style="font-size: small; margin-top: 30px" />  
+        <h:commandLink value="Esqueceu sua senha?" action="#{autenticacao.savePerson}" style="font-size: small; margin-top: 30px" />  
     </p:panel>  
       
 </h:form>  					

@@ -5,18 +5,13 @@
 package web.login.autenticacao.view;
 
 import java.io.Serializable;
- 
-
-
-
-
-import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
-
+import javax.faces.application.FacesMessage;  
+import javax.faces.context.FacesContext;  
+import javax.faces.event.ActionEvent;  
 
   
-@ManagedBean(name = "autenticacao") 
-@ApplicationScoped
+@ManagedBean 
 public class Autenticacao implements Serializable{
     private static final long serialVersionUID = 1L;
   
@@ -24,15 +19,19 @@ public class Autenticacao implements Serializable{
       
     private String senha;  
   
- 
-      
-    public String savePerson() {  
-       
-         return "/WEB-INF/jsp/cadastrarsenha/CadastrarSenha.xhtml";
+    public void login(ActionEvent action) {  
+       if(usuario.equals("admin") && senha.equals("admin")){
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + usuario +"!")); 
+           
+       }else{
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro:", "Usuario ou senha inválida"));  
+     }
+        
     }
-      public String login() {  
-       
-         return "autenticacao";
+    
+    public String recuperar(){
+        
+        return "recuperar";
     }
     
 
