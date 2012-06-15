@@ -48,13 +48,13 @@ and open the template in the editor.
         </h:panelGrid>  
            
         <p:commandButton value="Entrar"   
-                actionListener="#{autenticacao.login}"   
+                action="#{autenticacao.login}"   
                 id="btnGlobal" global="false"  update="panel" />  
         
         <p:commandButton value="Sair" style="margin-left:5px"/> 
        
         
-        <h:commandLink value="Esqueceu sua senha?" action="#{autenticacao.recuperar}" ajax="false"  style="font-size: small; margin-top: 30px" />
+        <h:commandLink value="Esqueceu sua senha?" action="#{autenticacao.recuperar}" style="font-size: small; margin-top: 30px" />
       </p:panel>  
       
 </h:form>  

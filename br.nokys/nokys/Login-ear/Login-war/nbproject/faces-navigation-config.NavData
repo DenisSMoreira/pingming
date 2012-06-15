@@ -19,20 +19,20 @@
         <Node id="DesbloquearSenhaConclusao.xhtml" x="393" y="32" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations">
-        <Node id="RecuperarSenhaConclusao.xhtml" x="660" y="523" zoom="true"/>
-        <Node id="Autenticacao.xhtml" x="169" y="16" zoom="true"/>
-        <Node id="homeFake.xhtml" x="434" y="105" zoom="true"/>
-        <Node id="CadastrarSenha.xhtml" x="347" y="512" zoom="true"/>
-        <Node id="*" x="185" y="-125" zoom="true"/>
-        <Node id="RecuperarSenha.xhtml" x="439" y="563" zoom="true"/>
-        <Node id="AlterarSenhaConclusacao.xhtml" x="106" y="540" zoom="true"/>
-        <Node id="AlterarSenha.xhtml" x="400" y="450" zoom="true"/>
-        <Node id="DesbloquearSenha.xhtml" x="400" y="300" zoom="true"/>
-        <Node id="AlterarSenhaConfirmacao.xhtml" x="150" y="300" zoom="true"/>
-        <Node id="CadastrarSenhaConclusao.xhtml" x="1150" y="150" zoom="true"/>
-        <Node id="DesbloquearSenhaConfirmacao.xhtml" x="496" y="648" zoom="true"/>
-        <Node id="CadastrarSenhaConfirmacao.xhtml" x="150" y="450" zoom="true"/>
-        <Node id="RecuperarSenhaConfirmacao.xhtml" x="827" y="619" zoom="true"/>
-        <Node id="DesbloquearSenhaConclusao.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="Autenticacao.xhtml" x="218" y="-228" zoom="true"/>
+        <Node id="RecuperarSenhaConclusao.xhtml" x="778" y="162" zoom="true"/>
+        <Node id="homeFake.xhtml" x="-72" y="-65" zoom="true"/>
+        <Node id="CadastrarSenha.xhtml" x="151" y="-66" zoom="true"/>
+        <Node id="*" x="269" y="-358" zoom="true"/>
+        <Node id="RecuperarSenha.xhtml" x="687" y="-68" zoom="true"/>
+        <Node id="AlterarSenhaConclusacao.xhtml" x="-198" y="315" zoom="true"/>
+        <Node id="AlterarSenha.xhtml" x="-166" y="38" zoom="true"/>
+        <Node id="DesbloquearSenha.xhtml" x="400" y="-66" zoom="true"/>
+        <Node id="CadastrarSenhaConclusao.xhtml" x="133" y="163" zoom="true"/>
+        <Node id="AlterarSenhaConfirmacao.xhtml" x="-203" y="167" zoom="true"/>
+        <Node id="DesbloquearSenhaConfirmacao.xhtml" x="442" y="38" zoom="true"/>
+        <Node id="CadastrarSenhaConfirmacao.xhtml" x="124" y="41" zoom="true"/>
+        <Node id="RecuperarSenhaConfirmacao.xhtml" x="776" y="35" zoom="true"/>
+        <Node id="DesbloquearSenhaConclusao.xhtml" x="451" y="161" zoom="true"/>
     </Scope>
 </Scene>

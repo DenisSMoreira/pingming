@@ -14,8 +14,10 @@ import javax.faces.application.FacesMessage;
  *
  * @author dmoreira
  */
-@ManagedBean(name = "CadastrarSenha")
+@ManagedBean(name = "cadastrar")
 public class CadastrarSenha implements Serializable{
+    
+    private String rg;
     
       public void addInfo(ActionEvent actionEvent) {  
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO,"Sample info message", "PrimeFaces rocks!"));  
@@ -31,6 +33,20 @@ public class CadastrarSenha implements Serializable{
   
     public void addFatal(ActionEvent actionEvent) {  
         FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_FATAL,"Sample fatal message", "Fatal Error in System"));  
+    }
+
+    /**
+     * @return the rg
+     */
+    public String getRg() {
+        return rg;
+    }
+
+    /**
+     * @param rg the rg to set
+     */
+    public void setRg(String rg) {
+        this.rg = rg;
     }
     
 }

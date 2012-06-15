@@ -15,32 +15,45 @@ and open the template in the editor.
     </h:head>
 
     <h:body>
-
-
   
 <h3>Cadastrar Senha - Dados Entrada</h3>  
 <h:form id="form2">  
     <h:panelGrid id="grid" columns="3">  
 
-        <h:outputText value="TEXT *" />  
-        <p:inputText id="textOnly" required="true" />  
-        <p:message id="textOnlyMessage" for="textOnly" display="text" />  
+         <h:outputText value="Tipo usuário: " />  
+        <p:selectManyCheckbox id="te">  
+            <f:selectItem itemLabel="Funcionario" itemValue="Option 1" />  
+            <f:selectItem itemLabel="Aluno" itemValue="Option 2" />  
+        </p:selectManyCheckbox>  
+        <p:message id="tex" for="te"   display="text" />  
+         
+        <h:outputText value="RG *" />  
+        <p:inputMask id="rg" mask="99.999.999-99" value="#{cadastrar.rg}" required="true" />  
+        <p:message id="rgMessage" for="rg"   display="text" />  
  
-        <h:outputText value="TEXT *" />  
+        <h:outputText value="Codigo Escola: *" />  
         <p:inputText id="textOnly1" required="true" />  
-        <p:message id="textOnlyMessage1" for="textOnly" display="text" />  
+        <p:message id="textOnlyMessage1" for="textOnly1" display="text" />  
 
-        <h:outputText value="TEXT *" />  
+        <h:outputText value="RA: *" />  
         <p:inputText id="textOnly2" required="true" />  
-        <p:message id="textOnlyMessage2" for="textOnly" display="text" />  
+        <p:message id="textOnlyMessage2" for="textOnly2" display="text" />  
 
-        <h:outputText value="TEXT *" />  
-        <p:inputText id="textOnl3y" required="true" />  
-        <p:message id="textOnlyMessage3" for="textOnly" display="text" />  
+        <h:outputText value="Data Nascimento: *" />  
+        <p:inputMask  id="textOnl3y" required="true" mask="99/99/9999" />  
+        <p:message id="textOnlyMessage3" for="textOnl3y" display="text" />  
 
-        <h:outputText value="TEXT *" />  
-        <p:inputText id="textOnly4" required="true" />  
-        <p:message id="textOnlyMessage4" for="textOnly" display="text" />  
+        <h:outputText value="Senha: *" />  
+        <p:password id="textOnly4" required="true" feedback="true" match="textOnly5"
+                    promptLabel="Por favor digite um password" weakLabel="Fraca"  
+                    goodLabel="Media" strongLabel="Otima"/> 
+  
+        
+        <p:message id="textOnlyMessage4" for="textOnly4" display="text" />  
+        
+        <h:outputText value="Confirme sua senha: *" />  
+        <p:password id="textOnly5" required="true" />  
+        <p:message id="textOnlyMessage5" for="textOnly5" display="text" />  
 
         <p:commandButton id="submitButton" value="Confirmar" update="grid"/>  
    

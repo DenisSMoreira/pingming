@@ -19,13 +19,14 @@ public class Autenticacao implements Serializable{
       
     private String senha;  
   
-    public void login(ActionEvent action) {  
+    public String login() {  
        if(usuario.equals("admin") && senha.equals("admin")){
-           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Welcome " + usuario +"!")); 
+           return "home";
            
        }else{
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,"Erro: ", "Usuario ou senha inválida"));  
-     }
+             return "";
+       }
         
     }
     
