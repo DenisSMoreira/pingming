@@ -1,6 +1,8 @@
 package br.com.medidor.temperatura.gerenciador;
 
 import br.com.medidor.temperatura.bean.Configuracao;
+import br.com.medidor.temperatura.dao.IConfiguracaoDAO;
+import br.com.medidor.temperatura.dao.facotry.DaoFactory;
 import br.com.medidor.temperatura.grafico.Grafico;
 import java.awt.Dimension;
 import java.awt.Toolkit;
@@ -15,36 +17,22 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 /**
- *
+ * Tela de gerenciamento de configurações do gráfico 
  * @author Paula
  */
 public class Gerenciador extends JFrame {
 
-    public static final int ID_CONFIGURACOES = 1;
-    private static final long serialVersionUID = 1L;
-    private JButton botaoAlterar, botaoLimpar, botaoCancelar, botaoGrafico;
-    private JTextField fieldTempExec, fieldTempMin, fieldTempMax;
-    private JPanel panel;
-    private JLabel labelTempExec, labelTempMin, labelTempMax;
-    private Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-//    private final IConfiguracaoDAO daoConfig = DaoFactory.criarConfiguracaoDao();
-    private Configuracao configuracao;
-    private Action acao = new Action();
-
     public Gerenciador() {
         super("Gerenciador do sistema");
         initConfigTela();
-//        configuracao = daoConfig.buscarConfiguracoes(ID_CONFIGURACOES);
-        
-        configuracao = new Configuracao();
-        configuracao.setTemperaturaMaxima(40);
-        configuracao.setTemperaturaMinima(2);
-        configuracao.setTempoExecucao(1000);
         initComponentes();
 
     }
 
-    public final void initComponentes() {
+    /**
+     * Metodo que inicia os componentes e adiciona no frame
+     */
+    private void initComponentes() {
 
         panel = new JPanel();
         panel.setSize(440, 160);
@@ -122,7 +110,10 @@ public class Gerenciador extends JFrame {
 
     }
 
-    public final void initConfigTela() {
+    /**
+     * Metodo que inicia a configurações estrutural do frame
+     */
+    private void initConfigTela() {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setTitle("Tela de configuração");
         this.setBounds((screenSize.width - 460) / 2, (screenSize.height - 460) / 2, 460, 200);
@@ -130,8 +121,11 @@ public class Gerenciador extends JFrame {
         this.setLayout(null);
     }
 
-   
-
+    /**
+     * Class Action
+     * Classe responsável por resgatar o evento do botão 
+     * e filtrar
+     */
     private class Action implements ActionListener {
 
         @Override
@@ -143,8 +137,8 @@ public class Gerenciador extends JFrame {
                 limparCampos();
             }
             if (e.getSource() == botaoGrafico) {
-               Grafico.abrirGrafico(configuracao);
-              
+                Grafico.abrirGrafico(configuracao);
+
             }
             if (e.getSource() == botaoCancelar) {
                 System.exit(0);
@@ -153,28 +147,71 @@ public class Gerenciador extends JFrame {
         }
     }
 
-  
-
+    /**
+     * Metodo para limpar os dados dos campos para digitação
+     */
     private void limparCampos() {
         fieldTempMax.setText("");
         fieldTempMin.setText("");
         fieldTempExec.setText("");
     }
 
+    /**
+     * Metodo para alterar configurações em tempo de execução 
+     */
     private void alterarConfiguracoes() {
         try {
             configuracao.setTemperaturaMaxima(Integer.parseInt(fieldTempMax.getText()));
             configuracao.setTemperaturaMinima(Integer.parseInt(fieldTempMin.getText()));
             configuracao.setTempoExecucao(Integer.parseInt(fieldTempExec.getText()));
 
-//            if (daoConfig.alterarConfiguracoes(configuracao)) {
-//                JOptionPane.showMessageDialog(panel, "Sucesso ao alterar configurações");
-//            } else {
-//                JOptionPane.showMessageDialog(panel, "Erro ao alterar configurações");
-//            }
+            if (daoConfig.alterarConfiguracoes(configuracao)) {
+                JOptionPane.showMessageDialog(panel, "Sucesso", "Sucesso ao alterar configurações" , JOptionPane.OK_OPTION);
+            } else {
+                JOptionPane.showMessageDialog(panel,"Erro ao alterar configurações", "Erro ao alterar configurações no banco de dados" ,JOptionPane.ERROR_MESSAGE);
+            }
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(panel, "Erro ao alterar configurações: Verifique os dados digitados.");
+            JOptionPane.showMessageDialog(panel,"Erro ao alterar configurações", "Verifique os dados digitados!", JOptionPane.ERROR_MESSAGE);
         }
     }
-  
+    /**
+     * ID das Configurações
+     */
+    private static final int ID_CONFIGURACOES = 1;
+    /**
+     * Serial ID do Serializable
+     */
+    private static final long serialVersionUID = 1L;
+    /**
+     * Botões
+     */
+    private JButton botaoAlterar, botaoLimpar, botaoCancelar, botaoGrafico;
+    /**
+     * Campos para digitar os valores
+     */
+    private JTextField fieldTempExec, fieldTempMin, fieldTempMax;
+    /**
+     * Panel
+     */
+    private JPanel panel;
+    /**
+     * Label's 
+     */
+    private JLabel labelTempExec, labelTempMin, labelTempMax;
+    /**
+     * Objeto usado para pegar o tamanho da tela
+     */
+    private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    /**
+     * Objeto de persistencia 
+     */
+    private final IConfiguracaoDAO daoConfig = DaoFactory.criarConfiguracaoDao();
+    /**
+     * Referencia do bean de configuração contendo as config iniciais
+     */
+    private final Configuracao configuracao = daoConfig.buscarConfiguracoes(ID_CONFIGURACOES);
+    /**
+     * Classe usada para gerenciar as action dos botões
+     */
+    private final Action acao = new Action();
 }
