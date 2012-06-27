@@ -27,6 +27,7 @@ import org.jfree.ui.RefineryUtilities;
  * Grafico de temperatura
  * @author Paula
  */
+//TODO: http://www.java2s.com/Code/Java/Chart/Line-Plot-Chart.htm novo layout
 public final class Grafico extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;

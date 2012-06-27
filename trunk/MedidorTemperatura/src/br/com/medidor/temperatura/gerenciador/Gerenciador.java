@@ -2,7 +2,7 @@ package br.com.medidor.temperatura.gerenciador;
 
 import br.com.medidor.temperatura.bean.Configuracao;
 import br.com.medidor.temperatura.dao.IConfiguracaoDAO;
-import br.com.medidor.temperatura.dao.facotry.DaoFactory;
+import br.com.medidor.temperatura.facotry.DaoFactory;
 import br.com.medidor.temperatura.grafico.Grafico;
 import java.awt.Dimension;
 import java.awt.Toolkit;

@@ -5,7 +5,7 @@
 package br.com.medidor.temperatura.dao;
 
 import br.com.medidor.temperatura.bean.Configuracao;
-import br.com.medidor.temperatura.dao.facotry.DaoFactory;
+import br.com.medidor.temperatura.facotry.DaoFactory;
 import org.hibernate.Session;
 
 /**
