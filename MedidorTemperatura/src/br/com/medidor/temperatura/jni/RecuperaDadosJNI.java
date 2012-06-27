@@ -14,8 +14,8 @@ import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
 
 /**
- *
- * @author Admin
+ * Recupera dados atráves do JNI
+ * @author Paula
  */
 @SuppressWarnings("deprecation")
 public class RecuperaDadosJNI {

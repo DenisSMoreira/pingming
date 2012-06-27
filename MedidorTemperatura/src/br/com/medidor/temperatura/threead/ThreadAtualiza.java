@@ -6,7 +6,7 @@ package br.com.medidor.temperatura.threead;
 
 import br.com.medidor.temperatura.bean.Configuracao;
 import br.com.medidor.temperatura.grafico.Grafico;
-import br.com.medidor.temperatura.util.FacoryDataSet;
+import br.com.medidor.temperatura.facotry.FacoryDataSet;
 import java.awt.Dimension;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
