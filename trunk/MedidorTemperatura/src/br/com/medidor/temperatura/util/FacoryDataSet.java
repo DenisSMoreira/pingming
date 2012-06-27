@@ -6,7 +6,6 @@ package br.com.medidor.temperatura.util;
 
 import br.com.medidor.temperatura.bean.Configuracao;
 import br.com.medidor.temperatura.jni.RecuperaDadosJNI;
-import org.jfree.data.time.TimeSeriesCollection;
 import org.jfree.data.xy.XYDataset;
 
 /**
@@ -22,17 +21,11 @@ public final class FacoryDataSet {
     }
 
     /**
-     * Creates a sample dataset.
+     * Cria um novo dataset.
      * @return the dataset.
-     */
-    @SuppressWarnings("deprecation")
+     */   
     public static XYDataset createDataset(Configuracao configuracao) {
-
-        final RecuperaDadosJNI cjni = RecuperaDadosJNI.getInstance();
-        final TimeSeriesCollection dataset = cjni.recuperarDados(configuracao);
-
-
-        return dataset;
+        return RecuperaDadosJNI.getInstance().recuperarDados(configuracao);
 
     }
 }

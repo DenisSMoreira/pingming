@@ -5,10 +5,10 @@
 package br.com.medidor.temperatura.jni;
 
 import br.com.medidor.temperatura.bean.Configuracao;
+import br.com.medidor.temperatura.util.ValidaTemperaturaUtil;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JOptionPane;
 import org.jfree.data.time.Minute;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
@@ -25,20 +25,28 @@ public class RecuperaDadosJNI {
     private TimeSeriesCollection dataset = null;
     private List<Minute> listaTime = new ArrayList<Minute>();
     private List<Integer> listaTemperatura = new ArrayList<Integer>();
-     int i = 1;
-      int it = 1;
-//TODO: Resgatar do C++
-//    public native int temperatura();
-//
-//    static {
-//        try {
-//            System.loadLibrary("nativeDLL");
-//        } catch (java.lang.UnsatisfiedLinkError e) {
-//            System.out.println(e);
-//        }
-//
-//    }
 
+    /**
+     * Nome do metodo nativo de outra linguagem
+     * @return int temperatura 
+     */
+    public native int temperatura();
+
+    //Carrega .dll
+    static {
+        try {
+            System.loadLibrary("C:\\nativeDLL.dll");
+        } catch (java.lang.UnsatisfiedLinkError e) {
+            System.err.println(e);
+        }
+
+    }
+
+    /**
+     * Torna a classe singleton para melhorar performace
+     * causado pela lentidão do JNI
+     * @return RecuperaDadosJNI new();
+     */
     public static RecuperaDadosJNI getInstance() {
         if (recuperaDadosJNI == null) {
             recuperaDadosJNI = new RecuperaDadosJNI();
@@ -49,7 +57,12 @@ public class RecuperaDadosJNI {
 
     }
 
-    //TESTE
+    /**
+     * Recupera dados
+     * @see Configuracao
+     * @param Configuracao configuracao
+     * @return TimeSeriesCollection
+     */
     public TimeSeriesCollection recuperarDados(Configuracao configuracao) {
 
         try {
@@ -57,16 +70,16 @@ public class RecuperaDadosJNI {
             timeSeries = new TimeSeries("Aquário 1", Minute.class);
             dataset.setDomainIsPointsInTime(true);
 
-            listaTime.add(new Minute(it++,1 , 1, 12, 2012));
+            listaTime.add(new Minute());
 
-            final int temp = dadoFake(); //temperatura();
+            final int temp = temperatura();
             listaTemperatura.add(temp);
-            verificaTemperatura(temp, configuracao);
+            ValidaTemperaturaUtil.verificaTemperatura(temp, configuracao);
 
             for (int i = 0; i < listaTime.size(); i++) {
-                Minute minute = listaTime.get(i);
-                Integer temperatura = listaTemperatura.get(i);
-                timeSeries.addOrUpdate(minute, temperatura);
+                final Minute minute = listaTime.get(i);
+                final Integer temperatura = listaTemperatura.get(i);
+                timeSeries.add(minute, temperatura);
 
                 if (listaTime.size() >= 10 && listaTemperatura.size() >= 10) {
                     listaTime.remove(minute);
@@ -84,24 +97,4 @@ public class RecuperaDadosJNI {
 
         return dataset;
     }
-
-    public void verificaTemperatura(Integer temperatura, Configuracao configuracao) {
-        if (configuracao.getTemperaturaMinima() >= temperatura) {
-            JOptionPane.showMessageDialog(null, "Temperatura Abaixo do permitido");
-        } else if (configuracao.getTemperaturaMaxima() <= temperatura) {
-            JOptionPane.showMessageDialog(null, "Temperatura Acima do permitido");
-        }
-
-    }
-   public int dadoFake(){
-        
-          if(i <= 22){
-             return i = i + 2;
-           }else{
-              return i =  i - 3;
-          }
-  
-   }
-
-    
 }
