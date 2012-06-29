@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd">
+    
+    <bean id="listar" class="com.spring.prime.Listar" />
+    
+    
+    <bean id="diego" class="com.spring.prime.Autor" >   
+        <property name="list"> 
+            <ref bean="listar" />
+        </property>
+        <property name="nome" value="Diego Pacheco" />
+        <property name="publicaveis"  > 
+            <list value-type="com.spring.prime.Livro">
+                <ref bean="livro1" />
+                <ref bean="livro2" />
+                <ref bean="livro3" />              
+            </list>
+        </property>
+    </bean>
+    
+    <bean id="livro1" class="com.spring.prime.Livro" >
+        <property name="autor" value="Diego Pacheco" />
+        <property name="titulo" value="Livro da Vida" /> 
+        <property name="editora" value="Edit" /> 
+        <property name="ano" value="2002" /> 
+    </bean>
+    
+    <bean id="livro2" class="com.spring.prime.Livro" >
+        <property name="autor" value="Diego Pacheco" />
+        <property name="titulo" value="Spring para crianças" /> 
+        <property name="editora" value="Edireallyt" /> 
+        <property name="ano" value="2011" /> 
+    </bean>
+    
+    <bean id="livro3" class="com.spring.prime.Livro" >
+        <property name="autor" value="Denis" />
+        <property name="titulo" value="Bit ou não" /> 
+        <property name="editora" value="Variados Editora" /> 
+        <property name="ano" value="1985" /> 
+    </bean>
+    
+</beans>
