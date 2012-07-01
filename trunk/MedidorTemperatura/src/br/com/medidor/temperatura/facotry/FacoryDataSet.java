@@ -25,6 +25,7 @@ public final class FacoryDataSet {
      * @return the dataset.
      */   
     public static XYDataset createDataset(Configuracao configuracao) {
+        
         return RecuperaDadosJNI.getInstance().recuperarDados(configuracao);
 
     }

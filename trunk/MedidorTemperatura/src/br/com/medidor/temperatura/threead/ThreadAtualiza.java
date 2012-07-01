@@ -15,6 +15,7 @@ import org.jfree.ui.ApplicationFrame;
 
 /**
  * ThreadAtualiza
+ *
  * @author Paula
  */
 public class ThreadAtualiza extends Thread {
@@ -24,12 +25,13 @@ public class ThreadAtualiza extends Thread {
     private static final Dimension DIMENSION = new Dimension(500, 370);
 
     /**
-     * Construtor obrigando a thread que atualizar o grafico 
-     *  receber alguns parametros nescessarios
+     * Construtor obrigando a thread que atualizar o grafico receber alguns
+     * parametros nescessarios
+     *
      * @see Configuracao
      * @see Grafico
      * @param ApplicationFrame grafico
-     * @param Configuracao configuracao 
+     * @param Configuracao configuracao
      */
     public ThreadAtualiza(ApplicationFrame applicationFrame, Configuracao configuracao) {
         this.applicationFrame = applicationFrame;
@@ -51,8 +53,8 @@ public class ThreadAtualiza extends Thread {
 
                 applicationFrame.setContentPane(chartPanel);
                 applicationFrame.validate();
-                
-                
+
+
                 Thread.sleep(configuracao.getTempoExecucao());
             } catch (Exception exception) {
                 System.out.print(exception.getMessage());
@@ -61,5 +63,4 @@ public class ThreadAtualiza extends Thread {
 
         }
     }
-
 }

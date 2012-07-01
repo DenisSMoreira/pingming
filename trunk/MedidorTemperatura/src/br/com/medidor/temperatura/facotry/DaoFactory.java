@@ -6,8 +6,8 @@ package br.com.medidor.temperatura.facotry;
  */
 import br.com.medidor.temperatura.dao.ConfiguracaoDAOImpl;
 import br.com.medidor.temperatura.dao.IConfiguracaoDAO;
-import org.hibernate.cfg.AnnotationConfiguration;
 import org.hibernate.SessionFactory;
+import org.hibernate.cfg.AnnotationConfiguration;
 
 /**
  * Classe Factory que contém o metodo para recuperar a instancia do Session Factory.
