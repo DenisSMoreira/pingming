@@ -12,6 +12,8 @@ import java.util.List;
 import org.jfree.data.time.Minute;
 import org.jfree.data.time.TimeSeries;
 import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  * Recupera dados atráves do JNI
@@ -21,8 +23,8 @@ import org.jfree.data.time.TimeSeriesCollection;
 public class RecuperaDadosJNI {
 
     private static RecuperaDadosJNI recuperaDadosJNI = null;
-    private TimeSeries timeSeries = null;
-    private TimeSeriesCollection dataset = null;
+    private XYSeries xYSeries = null;
+    private XYSeriesCollection seriesCollection = null;
     private List<Minute> listaTime = new ArrayList<Minute>();
     private List<Integer> listaTemperatura = new ArrayList<Integer>();
 
@@ -63,13 +65,10 @@ public class RecuperaDadosJNI {
      * @param Configuracao configuracao
      * @return TimeSeriesCollection
      */
-    public TimeSeriesCollection recuperarDados(Configuracao configuracao) {
+    public XYSeriesCollection recuperarDados(Configuracao configuracao) {
 
         try {
-            dataset = new TimeSeriesCollection();
-            timeSeries = new TimeSeries("Aquário 1", Minute.class);
-            dataset.setDomainIsPointsInTime(true);
-
+            seriesCollection = new XYSeriesCollection();
             listaTime.add(new Minute());
 
             final int temp = temperatura();
@@ -79,7 +78,7 @@ public class RecuperaDadosJNI {
             for (int i = 0; i < listaTime.size(); i++) {
                 final Minute minute = listaTime.get(i);
                 final Integer temperatura = listaTemperatura.get(i);
-                timeSeries.add(minute, temperatura);
+                xYSeries.add(minute.getHourValue(), temperatura);
 
                 if (listaTime.size() >= 10 && listaTemperatura.size() >= 10) {
                     listaTime.remove(minute);
@@ -92,9 +91,9 @@ public class RecuperaDadosJNI {
         }
 
 
-        dataset.addSeries(timeSeries);
+        seriesCollection.addSeries(xYSeries);
 
 
-        return dataset;
+        return seriesCollection;
     }
 }
