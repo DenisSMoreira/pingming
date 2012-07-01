@@ -20,7 +20,7 @@ public final class ValidaTemperaturaUtil {
     /**
      * Verifica Temperatura
      * @see Configuracao
-     * @param temperatura temperatura
+     * @param Temperatura temperatura
      * @param Configuracao configuracao  
      */
     public static void verificaTemperatura(final Integer temperatura, final Configuracao configuracao) {
