@@ -1,6 +1,9 @@
 package web.login.enity.bean;
 
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -8,6 +11,7 @@ import java.sql.Date;
  * Bean Historico Senha
  *
  */
+@Entity
 public class HistSenha implements java.io.Serializable {
 
     /**
@@ -18,11 +22,13 @@ public class HistSenha implements java.io.Serializable {
     /**
      * Atributo = Login
      */
+    @OneToOne
     private Login login;
 
     /**
      * Atributo = Codigo do Historico da Senha 
      */
+    @Id
     private Long codHistSenha;
     
     /**

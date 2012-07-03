@@ -4,7 +4,6 @@
  */
 package web.login.view.desbloquearsenha;
 
-import web.login.view.cadastrarsenha.*;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 
@@ -13,7 +12,7 @@ import javax.faces.bean.ManagedBean;
  *
  * @author dmoreira
  */
-@ManagedBean(name = "cadConfirmacao")
+@ManagedBean(name = "desbConfirmacao")
 public class DesbloquearSenhaConfirmacao implements Serializable{
     private static final long serialVersionUID = 1L;
     private String pergunta ;

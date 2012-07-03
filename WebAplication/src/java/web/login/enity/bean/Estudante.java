@@ -1,6 +1,9 @@
 package web.login.enity.bean;
 
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 /**
@@ -8,6 +11,7 @@ import java.sql.Date;
  * Classe BEAN Interlocutor
  *
  */
+@Entity
 public class Estudante implements java.io.Serializable {
     /**
 	 * 
@@ -17,6 +21,7 @@ public class Estudante implements java.io.Serializable {
     /**
      * Atributo codInterlocutor Codigo do Interlocutor
      */
+    @Id
     private Long codigo;
   
     /**
@@ -24,6 +29,7 @@ public class Estudante implements java.io.Serializable {
      * Atributo = Empresa Empresa
      * 
      */
+    @OneToOne
     private Escola escola;
 
 
