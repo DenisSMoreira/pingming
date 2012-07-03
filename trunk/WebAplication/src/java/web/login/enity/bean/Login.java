@@ -1,15 +1,19 @@
 package web.login.enity.bean;
 
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * 
  * Classe BEAN Login
  *
  */
+@Entity
 public class Login implements java.io.Serializable {
 
     private static final long serialVersionUID = -4647147468778964937L;
+    @Id
     private Long nroCpf;
     private PerguntaSecreta perguntaSecreta;
     private StatusLogin statusLogin;

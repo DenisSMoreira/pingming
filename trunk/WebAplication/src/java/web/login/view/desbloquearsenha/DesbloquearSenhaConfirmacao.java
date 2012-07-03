@@ -2,8 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package web.login.view.cadastrarsenha;
+package web.login.view.desbloquearsenha;
 
+import web.login.view.cadastrarsenha.*;
 import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 
