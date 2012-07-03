@@ -6,10 +6,6 @@
         <param-value>Production</param-value>
     </context-param>
     <context-param>
-        <param-name>javax.faces.CONFIG_FILES</param-name>
-        <param-value>/WEB-INF/faces-navigation-config.xml</param-value>
-    </context-param>
-    <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>/WEB-INF/config/autenticacao/applicationContext-Autenticacao.xml</param-value>
     </context-param>
@@ -25,7 +21,13 @@
         <param-name>javax.faces.DEFAULT_SUFFIX</param-name>
         <param-value>.xhtml</param-value>
     </context-param>
-    
+    <context-param>
+        <param-name>javax.faces.CONFIG_FILES</param-name>
+        <param-value>
+            /WEB-INF/faces-config.xml,
+            /WEB-INF/faces-navigation-config.xml
+        </param-value>
+    </context-param>
     <listener>
         <listener-class>
             org.springframework.web.context.ContextLoaderListener
@@ -36,7 +38,6 @@
             org.springframework.web.context.request.RequestContextListener
         </listener-class>
     </listener>
-  
     <servlet>
         <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
