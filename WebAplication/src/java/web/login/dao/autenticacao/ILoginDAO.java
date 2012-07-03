@@ -5,6 +5,7 @@
 package web.login.dao.autenticacao;
 
 import web.comum.dao.IDAO;
+import web.comum.dao.exception.DataBaseException;
 import web.login.enity.bean.Login;
 
 /**
@@ -13,5 +14,5 @@ import web.login.enity.bean.Login;
  */
 public interface ILoginDAO extends IDAO<Long, Login> {
     
-    boolean verificarAutenticacao(String usuario, String senha);
+    boolean verificarAutenticacao(String usuario, String senha) throws DataBaseException;
 }
