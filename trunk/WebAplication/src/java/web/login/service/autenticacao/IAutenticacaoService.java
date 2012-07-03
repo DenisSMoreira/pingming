@@ -4,6 +4,8 @@
  */
 package web.login.service.autenticacao;
 
+import web.login.comum.exceptions.LoginAcessoException;
+
 
 /**
  *
@@ -12,7 +14,7 @@ package web.login.service.autenticacao;
 public interface IAutenticacaoService {
  
     
-   boolean verificarAutenticacao(String usuario, String senha);
+   boolean verificarAutenticacao(String usuario, String senha) throws LoginAcessoException;
 
    
 }
