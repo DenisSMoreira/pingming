@@ -40,16 +40,16 @@ and open the template in the editor.
 
                         <h:panelGrid columns="3" cellpadding="5">  
                             <h:outputLabel for="usuario" value="Usuario:*" />  
-                            <p:inputText id="usuario"   
+                            <p:inputMask id="usuario"  mask="99.999.999-99" 
                                          value="#{autenticacao.usuario}"   
                                          required="true" label="Usuario" maxlength="40"  requiredMessage="Campo necessário." >   
-                                <f:validateLength minimum="3"  maximum="40"/>  
-                            </p:inputText>  
+                                <f:validateLength minimum="13"  maximum="13"/>  
+                            </p:inputMask>  
                             <p:message for="usuario" display="text" />  
 
                             <h:outputLabel for="senha" value="Senha:*" />  
                             <p:password id="senha" value="#{autenticacao.senha}" maxlength="40" label="Senha" required="true"  requiredMessage="Senha necessária."  > 
-                                <f:validateLength minimum="3"  maximum="40" /> 
+                                <f:validateLength minimum="5"  maximum="40" /> 
                             </p:password>  
                             <p:message for="senha"  display="text"  />  
 
