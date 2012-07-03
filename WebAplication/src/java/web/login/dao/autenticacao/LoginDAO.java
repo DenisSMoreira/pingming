@@ -12,7 +12,7 @@ import web.comum.dao.SessionDao;
 import web.login.enity.bean.Login;
 
 
-public class LoginDAO extends AbstractDAO<Object, Object> implements ILoginDAO  {
+public class LoginDAO extends AbstractDAO<Long, Login> implements ILoginDAO  {
 
     @Override
     public boolean verificarAutenticacao(String usuario, String senha) {
