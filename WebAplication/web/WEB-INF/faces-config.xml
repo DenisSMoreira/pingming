@@ -45,5 +45,10 @@
         </locale-config>
  -->
 
-    </application>
+    </application>  
+    
+    <lifecycle> 
+        <phase-listener>web.login.phaseListener.PhaseListener</phase-listener>
+    </lifecycle>
+
 </faces-config>
