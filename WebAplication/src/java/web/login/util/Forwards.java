@@ -10,7 +10,6 @@ package web.login.util;
  */
 public interface Forwards {
 
-
     static final String RECUPERAR_SENHA = "recuperarSenha";
     static final String ALTERAR_SENHA = "alterarSenha";
     static final String CADASTRAR_SENHA = "cadastrarSenha";
