@@ -10,6 +10,6 @@
        >
  
   
-
+ <bean class="web.comum.logCreationBean.LogCreationBeanPostProcessor" />
  
 </beans>
