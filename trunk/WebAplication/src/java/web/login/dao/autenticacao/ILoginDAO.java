@@ -12,7 +12,11 @@ import web.login.enity.bean.Login;
  *
  * @author Admin
  */
-public interface ILoginDAO extends IDAO<Long, Login> {
+public interface ILoginDAO extends IDAO<Login , Long> {
     
-    boolean verificarAutenticacao(String usuario, String senha) throws DataBaseException;
+    boolean validaAutenticacao(String usuario, String senha) throws DataBaseException;
+
+
+    
+
 }

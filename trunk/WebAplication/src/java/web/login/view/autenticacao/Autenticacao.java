@@ -27,7 +27,7 @@ public class Autenticacao implements Serializable {
     public String verificarAutenticacao() {
         String retorno = "";
         try {
-            if (autenticacaoService.verificarAutenticacao(usuario, senha)) {
+            if (autenticacaoService.validaAutenticacao(usuario, senha)) {
                 retorno = Forwards.HOME;
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario ou senha inválida!", null));
