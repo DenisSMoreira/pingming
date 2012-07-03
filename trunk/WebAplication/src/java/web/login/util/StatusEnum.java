@@ -6,11 +6,11 @@ package web.login.util;
  * 
  */
 public enum StatusEnum {
+
     /**
-     * Status do usu�rio.
+     * Status do usuario.
      */
     CADASTRADO((short) 1), PENDENTE((short) 2), ATIVADO((short) 3), BLOQUEADO((short) 4), DESATIVADO((short) 5);
-
     /**
      * Valor inteiro correspondente ao status.
      */
