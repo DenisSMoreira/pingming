@@ -4,7 +4,6 @@ import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import javax.persistence.EntityManager;
 import javax.persistence.Persistence;
-import javax.persistence.PersistenceContext;
 import web.comum.dao.exception.DataBaseException;
 
 /**
@@ -13,12 +12,10 @@ import web.comum.dao.exception.DataBaseException;
  * deve possuir uma implementação AbstractDAO que extende esta classe e implementar uma
  * interface AbstractDAO referente a Entidade.
  * 
- * @author Scopus Tecnologia Ltda.
+ * @author Denis Soares Moreira.
  * 
- * @param <T>
- *            O Tipo da Entidade de Negócio a ser persistida.
- * @param <K>
- *            O Tipo da Chave primária da Entidade de Negócio a ser persistida.
+ * @param <T>  O Tipo da Entidade de Negócio a ser persistida.
+ * @param <K>  O Tipo da Chave primária da Entidade de Negócio a ser persistida.
  */
 public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
 
@@ -43,7 +40,6 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
      * Persiste uma Entidade de Negócio em banco de dados através da
      * implementação JPA. Este método participa de uma transação global (está
      * anotado com
-     * <code>@TransactionAttribute(TransactionAttributeType.REQUIRED)</code>) ,
      * portanto nescessita de uma transação ativa.
      * 
      * @param objeto
@@ -55,7 +51,7 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
      *             Em caso de erros na persistência.
      */
     @Override
-    public T inserir(T objeto) throws DataBaseException {
+    public T salvar(T objeto) throws DataBaseException {
 
         try {
             em.persist(objeto);
@@ -68,18 +64,14 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
 
     /**
      * Atualiza uma Entidade de Negócio em banco de dados através da
-     * implementação JPA. Este método participa de uma transação global (está
-     * anotado com
-     * <code>@TransactionAttribute(TransactionAttributeType.REQUIRED)</code>) ,
+     * implementação JPA. Este método participa de uma transação global.
      * portanto nescessita de uma transação ativa.
      * 
-     * @param objeto
-     *            A Entidade de Negócio a ser atualizada.
+     * @param objeto A Entidade de Negócio a ser atualizada.
      * 
      * @return A Entidade de Negócio atualizada.
      * 
-     * @throws DataBaseException
-     *             Em caso de erros na persistência.
+     * @throws DataBaseException em caso de erros na persistência.
      */
     @Override
     public T atualizar(T objeto) throws DataBaseException {
@@ -100,16 +92,14 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
      * <code>@TransactionAttribute(TransactionAttributeType.REQUIRED)</code>) ,
      * portanto nescessita de uma transação ativa.
      * 
-     * @param pk
-     *            A chave primária da Entidade de Negócio a ser removida.
+     * @param chavePrimaria A chave primária da Entidade de Negócio a ser removida.
      * 
-     * @throws DataBaseException
-     *             Em caso de erros na persistência.
+     * @throws DataBaseException em caso de erros na persistência.
      */
     @Override
-    public void remover(K pk) throws DataBaseException {
+    public void remover(K chavePrimaria) throws DataBaseException {
         try {
-            T objeto = obter(pk);
+            T objeto = buscar(chavePrimaria);
             em.remove(objeto);
         } catch (Exception e) {
             throw new DataBaseException(e);
@@ -123,7 +113,7 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
      * <code>TransactionAttributeType.NOT_SUPPORTED</code>), portanto não
      * nescessita de uma transação ativa.
      * 
-     * @param pk
+     * @param chavePrimaria
      *            A chave primária da Entidade de Negócio a ser recuperada.
      * 
      * @return A Entidade de Negócio recuperada.
@@ -132,11 +122,11 @@ public abstract class AbstractDAO<T, K> implements IDAO<T, K> {
      *             Em caso de erros na persistência.
      */
     @Override
-    public T obter(K pk) {
+    public T buscar (K chavePrimaria) {
         T bean = null;
 
         try {
-            bean = em.find(getEntityTypeClass(), pk);
+            bean = em.find(getEntityTypeClass(), chavePrimaria);
         } catch (Exception e) {
             e.printStackTrace();
         }

@@ -12,7 +12,7 @@ package web.comum.dao.exception;
  * <code>@ApplicationException(rollback = true)</code>).
  * 
  * 
- * @author Scopus Tecnologia Ltda.
+ * @author Denis Soares Moreira.
  * 
  */
 public class DataBaseException extends Exception {

@@ -11,12 +11,10 @@ import web.comum.dao.exception.DataBaseException;
  * Negócio que precisa ser persistida deve possuir uma Interface DAO específica
  * a Entidade e extender a Interface genérica.
  * 
- * @author Scopus Tecnologia Ltda.
+ * @author Denis Soares Moreira.
  * 
- * @param <T>
- *            O Tipo da Entidade de Negócio a ser persistida.
- * @param <K>
- *            O Tipo da Chave primária da Entidade de Negócio a ser persistida.
+ * @param <T> O Tipo da Entidade de Negócio a ser persistida.
+ * @param <K>  O Tipo da Chave primária da Entidade de Negócio a ser persistida.
  */
 public interface IDAO<T, K> {
 
@@ -31,7 +29,7 @@ public interface IDAO<T, K> {
 	 * @throws DataBaseException
 	 *             Em caso de erros na persistência.
 	 */
-	public T inserir(T objeto) throws DataBaseException;
+	public T salvar(T objeto) throws DataBaseException;
 
 	/**
 	 * Atualiza uma Entidade de Negócio em banco de dados.
@@ -69,7 +67,7 @@ public interface IDAO<T, K> {
 	 * @throws DataBaseException
 	 *             Em caso de erros na persistência.
 	 */
-	public T obter(K pk);
+	public T buscar(K pk);
 
 	/**
 	 * Otém o tipo da Classe da Entidade de Negócio.
