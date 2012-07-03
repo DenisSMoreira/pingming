@@ -7,7 +7,14 @@
     </context-param>
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>/WEB-INF/config/autenticacao/applicationContext-Autenticacao.xml</param-value>
+        <param-value>
+            /WEB-INF/applicationContext.xml,
+            /WEB-INF/config/alterarsenha/applicationContext-Alterar.xml,
+            /WEB-INF/config/autenticacao/applicationContext-Autenticacao.xml,
+            /WEB-INF/config/cadastrarsenha/applicationContext-Cadastrar.xml,
+            /WEB-INF/config/desbloquearsenha/applicationContext-Desbloquear.xml,
+            /WEB-INF/config/recuperarsenha/applicationContext-Recuperar.xml    
+        </param-value>
     </context-param>
     <context-param>
         <param-name>primefaces.THEME</param-name>
