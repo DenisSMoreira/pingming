@@ -16,11 +16,11 @@ import java.io.PrintWriter;
  * <ol>
  * <li>Data: 
  *      <ul>
- *          <li>Autor: Scopus Tecnologia Ltda.
+ *          <li>Autor: Denis Soares Moreira.
  *          <li>Descrição: versão inicial
  *      </ul>
  * </ol>
- * @author Scopus Tecnologia Ltda.
+ * @author Denis Soares Moreira.
  */
 public class BaseException extends Exception {
 
