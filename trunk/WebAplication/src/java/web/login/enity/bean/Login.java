@@ -3,6 +3,8 @@ package web.login.enity.bean;
 import java.sql.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
 
 /**
  * 
@@ -15,7 +17,9 @@ public class Login implements java.io.Serializable {
     private static final long serialVersionUID = -4647147468778964937L;
     @Id
     private Long nroCpf;
+    @OneToOne
     private PerguntaSecreta perguntaSecreta;
+    @OneToOne
     private StatusLogin statusLogin;
     private String senha;
     private String respostaSecreta;
@@ -23,6 +27,7 @@ public class Login implements java.io.Serializable {
     private Integer qtdTentativasAcesso;
     private Date dataUltimaAlteracaoSenha;
     private Boolean flagExclusao;
+    @OneToOne
     private Funcionario funcionario;
     
     public Login(){

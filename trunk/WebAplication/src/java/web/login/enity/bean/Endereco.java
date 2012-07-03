@@ -1,9 +1,11 @@
 package web.login.enity.bean;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
-
+@Entity
 public class Endereco implements Serializable {
 
     /**
@@ -11,7 +13,7 @@ public class Endereco implements Serializable {
 	 */
     private static final long serialVersionUID = -7728064390319272313L;
 
-
+    @Id
     private Long codigo;
 
     /**

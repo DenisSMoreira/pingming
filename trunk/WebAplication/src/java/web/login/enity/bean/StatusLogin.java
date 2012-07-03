@@ -1,21 +1,22 @@
 package web.login.enity.bean;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * Bean StatusLogin.
  * */
+@Entity
 public class StatusLogin implements Serializable {
-
 
     /**
      * 
      */
     private static final long serialVersionUID = 4465136663554280418L;
-
-     private Short codigo;
-     
-     private String descricao;
+    @Id
+    private Short codigo;
+    private String descricao;
 
     /**
      * @return the codigo
@@ -44,7 +45,4 @@ public class StatusLogin implements Serializable {
     public String getDescricao() {
         return descricao;
     }
-
-    
-
 }

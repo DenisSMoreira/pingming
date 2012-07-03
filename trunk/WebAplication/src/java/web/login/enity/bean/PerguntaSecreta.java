@@ -2,25 +2,26 @@ package web.login.enity.bean;
 
 import java.io.Serializable;
 import java.sql.Date;
-
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  * 
  * Classe BEAN Pergunta Secreta
  *
  */
+@Entity
 public class PerguntaSecreta implements Serializable {
 
     /**
-	 * Numero Serial
-	 */
-    private static final long serialVersionUID = 5379424373753525014L;
+     * Numero Serial
+     */
+    @Id
     private Integer codPerguntaSecreta;
     private String pergunta;
     private Date dtExclusao;
-    
-    public PerguntaSecreta(){
-        
+
+    public PerguntaSecreta() {
     }
 
     /**
@@ -64,7 +65,4 @@ public class PerguntaSecreta implements Serializable {
     public void setDtExclusao(Date dtExclusao) {
         this.dtExclusao = dtExclusao;
     }
-
-  
-
 }

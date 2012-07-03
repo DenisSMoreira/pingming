@@ -1,11 +1,15 @@
 package web.login.enity.bean;
 
 import java.sql.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 /**
  * Bean Escola
  */
+@Entity
 public class Escola implements java.io.Serializable {
 
     /**
@@ -16,11 +20,13 @@ public class Escola implements java.io.Serializable {
     /**
      * O codigo do Escola
      */
+    @Id
     private Long codigo;   
    
     /**
      * O endereco do cliente
      */
+    @OneToOne
     private Endereco endereco;
 
     /**

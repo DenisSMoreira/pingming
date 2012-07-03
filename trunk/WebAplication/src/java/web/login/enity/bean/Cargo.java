@@ -1,6 +1,8 @@
 package web.login.enity.bean;
 
 import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 /**
  *
@@ -8,6 +10,7 @@ import java.io.Serializable;
  *
  *
  */
+@Entity
 public class Cargo implements Serializable {
 
     /**
@@ -21,12 +24,14 @@ public class Cargo implements Serializable {
      * Atributo = Codigo Cargo
      *
      */
+    @Id
     private Integer codigoCargo;
     /**
      *
      * Atributo = Descri��o do Cargo
      *
      */
+  
     private String descricaoCargo;
 
     /**
