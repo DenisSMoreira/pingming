@@ -5,10 +5,13 @@
 package web.login.view.autenticacao;
 
 import java.io.Serializable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import web.login.comum.exceptions.LoginAcessoException;
 import web.login.service.autenticacao.IAutenticacaoService;
 import web.login.util.Forwards;
 
@@ -22,14 +25,18 @@ public class Autenticacao implements Serializable {
     private IAutenticacaoService autenticacaoService;
 
     public String verificarAutenticacao() {
-
-        if (autenticacaoService.verificarAutenticacao(usuario, senha)) {
-            return Forwards.HOME;
-        } else {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario ou senha inválida!", null));
-            return "";
+        String retorno = "";
+        try {
+            if (autenticacaoService.verificarAutenticacao(usuario, senha)) {
+                retorno = Forwards.HOME;
+            } else {
+                FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario ou senha inválida!", null));
+                retorno = "";
+            }
+        } catch (LoginAcessoException ex) {
+            Logger.getLogger(Autenticacao.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
         }
-
+        return retorno;
     }
 
     public String forwardRecuperar() {
@@ -77,6 +84,4 @@ public class Autenticacao implements Serializable {
     public void setAutenticacaoService(IAutenticacaoService autenticacaoService) {
         this.autenticacaoService = autenticacaoService;
     }
-
-
 }
