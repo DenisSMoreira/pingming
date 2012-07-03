@@ -16,7 +16,7 @@ import web.comum.dao.exception.DataBaseException;
  * @param <T> O Tipo da Entidade de Negócio a ser persistida.
  * @param <K>  O Tipo da Chave primária da Entidade de Negócio a ser persistida.
  */
-public interface IDAO<T, K> {
+ public interface IDAO<T, K> {
 
 	/**
 	 * Persiste uma Entidade de Negócio em banco de dados.

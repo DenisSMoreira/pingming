@@ -9,6 +9,7 @@ import java.util.logging.Logger;
 import web.comum.dao.exception.DataBaseException;
 import web.login.comum.exceptions.LoginAcessoException;
 import web.login.dao.autenticacao.ILoginDAO;
+import web.login.enity.bean.Login;
 
 /**
  *
@@ -19,15 +20,24 @@ public class AutenticacaoService implements IAutenticacaoService {
     private ILoginDAO loginDAO;
 
     @Override
-    public boolean verificarAutenticacao(String usuario, String senha) throws LoginAcessoException {
+    public boolean validaAutenticacao(String usuario, String senha) throws LoginAcessoException {
         try {
-            return loginDAO.verificarAutenticacao(usuario, senha);
+            return loginDAO.validaAutenticacao(usuario, senha);
         } catch (DataBaseException ex) {
             Logger.getLogger(AutenticacaoService.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
             throw new LoginAcessoException(ex.getMessage());
-
         }
 
+    }
+
+    @Override
+    public Login buscaLogin(Long cpf) throws LoginAcessoException {
+        try {
+            return loginDAO.buscar(cpf);
+        } catch (Exception ex) {
+            Logger.getLogger(AutenticacaoService.class.getName()).log(Level.SEVERE, ex.getMessage(), ex);
+            throw new LoginAcessoException(ex.getMessage());
+        }
     }
 
     /**
