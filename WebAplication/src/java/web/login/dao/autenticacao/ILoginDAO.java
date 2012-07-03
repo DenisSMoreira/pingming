@@ -4,7 +4,6 @@
  */
 package web.login.dao.autenticacao;
 
-import web.comum.dao.AbstractDAO;
 import web.comum.dao.IDAO;
 
 /**

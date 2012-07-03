@@ -2,12 +2,14 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package web.login.view.cadastrarsenha;
+package web.login.dao.desbloquear;
+
+import web.comum.dao.IDAO;
 
 /**
  *
  * @author dmoreira
  */
-public class DesbloquearSenhaConclusao {
+public interface IDesbloquearDAO extends IDAO<Object, Object> {
     
 }

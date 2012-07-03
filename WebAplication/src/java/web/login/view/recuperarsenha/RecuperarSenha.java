@@ -4,10 +4,31 @@
  */
 package web.login.view.recuperarsenha;
 
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import web.login.service.recuperarsenha.IRecuperarService;
+
 /**
  *
  * @author dmoreira
  */
+@ManagedBean(name = "recuperar")
+@RequestScoped
 public class RecuperarSenha {
     
+    private IRecuperarService recuperarService;
+
+    /**
+     * @return the recuperarService
+     */
+    public IRecuperarService getRecuperarService() {
+        return recuperarService;
+    }
+
+    /**
+     * @param recuperarService the recuperarService to set
+     */
+    public void setRecuperarService(IRecuperarService recuperarService) {
+        this.recuperarService = recuperarService;
+    }
 }
