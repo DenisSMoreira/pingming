@@ -9,13 +9,14 @@ import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 import web.comum.dao.AbstractDAO;
 import web.comum.dao.SessionDao;
+import web.comum.dao.exception.DataBaseException;
 import web.login.enity.bean.Login;
 
 
 public class LoginDAO extends AbstractDAO<Long, Login> implements ILoginDAO  {
 
     @Override
-    public boolean verificarAutenticacao(String usuario, String senha) {
+    public boolean verificarAutenticacao(String usuario, String senha) throws DataBaseException{
         Session session = SessionDao.getSession(super.getEntityManager());
         Criteria critLogin = session.createCriteria(Login.class);
         boolean resultado = false;
