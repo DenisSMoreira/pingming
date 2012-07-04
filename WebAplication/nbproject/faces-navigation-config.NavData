@@ -5,7 +5,7 @@
         <Node id="Telas/desbloquearsenha/DesbloquearUsuario.xhtml" x="1150" y="300" zoom="true"/>
         <Node id="Telas/autenticacao/Autenticacao.xhtml" x="1150" y="150" zoom="true"/>
         <Node id="Telas/comum/Template.xhtml" x="400" y="150" zoom="true"/>
-        <Node id="*" x="9" y="16" zoom="true"/>
+        <Node id="*" x="111" y="19" zoom="true"/>
         <Node id="Telas/alterarsenha/AlterarSenhaConfirmacao.xhtml" x="150" y="300" zoom="true"/>
         <Node id="Telas/alterarsenha/AlterarSenha.xhtml" x="900" y="150" zoom="true"/>
         <Node id="Telas/desbloquearsenha/DesbloquearUsuarioNovaSenha.xhtml" x="400" y="450" zoom="true"/>
