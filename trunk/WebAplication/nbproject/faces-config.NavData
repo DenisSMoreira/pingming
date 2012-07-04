@@ -17,8 +17,8 @@
         <Node id="Telas/recuperarsenha/RecuperarSenhaConfirmacao.xhtml" x="650" y="150" zoom="true"/>
         <Node id="Telas/recuperarsenha/RecuperarSenhaPerguntaSecreta.xhtml" x="900" y="300" zoom="true"/>
         <Node id="Telas/comum/Erro.xhtml" x="400" y="150" zoom="true"/>
-        <Node id="Telas/desbloquearsenha/DesbloquearUsuarioConclusao.xhtml" x="650" y="300" zoom="true"/>
         <Node id="Telas/autenticacao/MensagemAutenticacao.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="Telas/desbloquearsenha/DesbloquearUsuarioConclusao.xhtml" x="650" y="300" zoom="true"/>
         <Node id="Telas/recuperarsenha/RecuperarSenha.xhtml" x="1150" y="150" zoom="true"/>
         <Node id="Telas/cadastrarsenha/CadastrarSenhaConclusao.xhtml" x="1400" y="150" zoom="true"/>
     </Scope>

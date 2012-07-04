@@ -5,12 +5,16 @@
 package web.login.view.autenticacao;
 
 import java.io.Serializable;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import web.comum.session.SessaoWeb;
 import web.login.comum.exceptions.LoginAcessoException;
 import web.login.service.autenticacao.IAutenticacaoService;
 import web.login.util.Forwards;
@@ -28,7 +32,22 @@ public class Autenticacao implements Serializable {
         String retorno = "";
         try {
             if (autenticacaoService.validaAutenticacao(usuario, senha)) {
+                FacesContext contexto = FacesContext.getCurrentInstance();
+               
+                HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(true);
+               
+                HttpServletRequest request = (HttpServletRequest) contexto.getExternalContext().getRequest();
+               
+                SessaoWeb sessaoWeb = new SessaoWeb();
+                sessaoWeb.setDataLogin(new Date());
+                sessaoWeb.setIndentificadorUser(usuario);
+                sessaoWeb.setIpUser(request.getRemoteAddr());
+                sessaoWeb.setNumeroSessao(sessao.getId());
+
+                sessao.setAttribute("sessaoWeb", sessaoWeb);
+               
                 retorno = Forwards.HOME;
+
             } else {
                 FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usuario ou senha inválida!", null));
                 retorno = "";
