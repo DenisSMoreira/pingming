@@ -18,6 +18,8 @@ public class SessaoWeb {
     
     public static final boolean ESTADO_EXPIRADO = false;
     
+    public static final boolean ESTADO_PENDENTE = false;
+    
     private boolean statusUser;
     private String nomeUser;
     private String ipUser;

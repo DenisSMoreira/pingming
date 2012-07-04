@@ -28,40 +28,52 @@ public class PhaseListener implements javax.faces.event.PhaseListener {
         boolean isLoginPage = paginaAtual.lastIndexOf("Autenticacao.xhtml") > -1;
         // Obtém a sessão atual
         HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
-     
-        if (sessao != null) {
-            //Resgata um objeto da sessão
-            SessaoWeb sessaoWeb = (SessaoWeb) sessao.getAttribute("sessaoWeb");
-            if (sessaoWeb != null) {
-                // Verifica se o usuário está logado e se não está na página de login
-                if (!isLoginPage && sessaoWeb.isStatusUser() == SessaoWeb.ESTADO_EXPIRADO) {
-                    // Redireciona o fluxo para a página de login
-                    NavigationHandler nh = contexto.getApplication().getNavigationHandler();
-                    nh.handleNavigation(contexto, null, "autenticacao");
 
-                } else if (isLoginPage && sessaoWeb.isStatusUser() == SessaoWeb.ESTADO_ONLINE) {
-                    // Se o usuário logado tentar acessar a página de login ele é
-                    // redirecionado para a página inicial
-                    NavigationHandler nh = contexto.getApplication().getNavigationHandler();
-                    nh.handleNavigation(contexto, null, "home");
-                }
+        SessaoWeb sessaoWeb = null;
+
+
+        if (sessao == null) {
+            sessao = (HttpSession) contexto.getExternalContext().getSession(true);
+        }
+        //Resgata um objeto da sessão
+        sessaoWeb = (SessaoWeb) sessao.getAttribute("sessaoWeb");
+
+        if (sessaoWeb != null) {
+
+            // Verifica se o usuário está logado e se não está na página de login
+            if (!isLoginPage && sessaoWeb.isStatusUser() != SessaoWeb.ESTADO_ONLINE) {
+                // Redireciona o fluxo para a página de login
+                NavigationHandler nh = contexto.getApplication().getNavigationHandler();
+                nh.handleNavigation(contexto, null, "autenticacao");
+
+            } else if (isLoginPage && sessaoWeb.isStatusUser() == SessaoWeb.ESTADO_ONLINE) {
+                // Se o usuário logado tentar acessar a página de login ele é
+                // redirecionado para a página inicial
+                NavigationHandler nh = contexto.getApplication().getNavigationHandler();
+                nh.handleNavigation(contexto, null, "home");
+            }
+
+        } else {
+            if (isLoginPage) {
+                sessaoWeb = new SessaoWeb();
+                sessaoWeb.setStatusUser(SessaoWeb.ESTADO_LOGOUT);
+                sessao.setAttribute("sessaoWeb", sessaoWeb);
             } else {
                 // Redireciona o fluxo para a página de login
                 NavigationHandler nh = contexto.getApplication().getNavigationHandler();
                 nh.handleNavigation(contexto, null, "autenticacao");
+                sessaoWeb = new SessaoWeb();
+                sessaoWeb.setStatusUser(SessaoWeb.ESTADO_LOGOUT);
+                sessao.setAttribute("sessaoWeb", sessaoWeb);
             }
-        } else {
-            // Redireciona o fluxo para a página de login
-            NavigationHandler nh = contexto.getApplication().getNavigationHandler();
-            nh.handleNavigation(contexto, null, "autenticacao");
+
         }
+
 
     }
 
     @Override
     public void beforePhase(PhaseEvent event) {
-   
-
     }
 
     @Override
