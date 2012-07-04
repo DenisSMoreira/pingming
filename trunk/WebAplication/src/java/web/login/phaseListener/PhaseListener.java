@@ -19,7 +19,7 @@ public class PhaseListener implements javax.faces.event.PhaseListener {
 
     @Override
     public void afterPhase(PhaseEvent event) {
-// <<<<<<<<<<<<<<<< FILTRO >>>>>>>>>>>>>>>>>
+
         // Obtém o contexto atual
         FacesContext contexto = event.getFacesContext();
         // Obtém a página que atualmente está interagindo com o ciclo
@@ -28,9 +28,9 @@ public class PhaseListener implements javax.faces.event.PhaseListener {
         boolean isLoginPage = paginaAtual.lastIndexOf("Autenticacao.xhtml") > -1;
         // Obtém a sessão atual
         HttpSession sessao = (HttpSession) contexto.getExternalContext().getSession(false);
-        // Restaga o nome do usuário logado
-
+     
         if (sessao != null) {
+            //Resgata um objeto da sessão
             SessaoWeb sessaoWeb = (SessaoWeb) sessao.getAttribute("sessaoWeb");
             if (sessaoWeb != null) {
                 // Verifica se o usuário está logado e se não está na página de login
@@ -56,14 +56,11 @@ public class PhaseListener implements javax.faces.event.PhaseListener {
             nh.handleNavigation(contexto, null, "autenticacao");
         }
 
-
-        event.getFacesContext().getExternalContext().log("AFTER: " + event.getPhaseId());
-
     }
 
     @Override
     public void beforePhase(PhaseEvent event) {
-        event.getFacesContext().getExternalContext().log("BEFORE: " + event.getPhaseId());
+   
 
     }
 
