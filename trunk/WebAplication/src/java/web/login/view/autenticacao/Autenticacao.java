@@ -42,6 +42,7 @@ public class Autenticacao implements Serializable {
                 sessaoWeb.setDataLogin(new Date());
                 sessaoWeb.setIndentificadorUser(usuario);
                 sessaoWeb.setIpUser(request.getRemoteAddr());
+                sessaoWeb.setStatusUser(SessaoWeb.ESTADO_ONLINE);
                 sessaoWeb.setNumeroSessao(sessao.getId());
 
                 sessao.setAttribute("sessaoWeb", sessaoWeb);
