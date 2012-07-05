@@ -37,7 +37,7 @@ public class RecuperaDadosJNI {
     //Carrega .dll
     static {
         try {
-            System.loadLibrary("C:\\nativeDLL.dll");
+            System.load("C:\\Users\\Paulinha\\Documents\\NetBeansProjects\\Temperatura\\dist\\Debug\\MinGW-Windows\\libTemperatura.dll");
         } catch (java.lang.UnsatisfiedLinkError e) {
             System.err.println(e);
         }
@@ -72,6 +72,7 @@ public class RecuperaDadosJNI {
             listaTime.add(new Minute());
 
             final int temp = temperatura();
+            System.out.println("*********"+temp);
             listaTemperatura.add(temp);
             ValidaTemperaturaUtil.verificaTemperatura(temp, configuracao);
 

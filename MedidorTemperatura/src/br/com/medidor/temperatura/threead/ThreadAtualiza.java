@@ -55,7 +55,7 @@ public class ThreadAtualiza extends Thread {
                 applicationFrame.validate();
 
 
-                Thread.sleep(configuracao.getTempoExecucao());
+                Thread.sleep(configuracao.getSegundosAtualizacao());
             } catch (Exception exception) {
                 System.out.print(exception.getMessage());
                 break;

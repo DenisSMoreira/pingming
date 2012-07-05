@@ -83,7 +83,7 @@ public class Gerenciador extends JFrame {
         fieldTempExec = new JTextField();
         fieldTempExec.setSize(125, 20);
         fieldTempExec.setLocation(225, 70);
-        fieldTempExec.setText(configuracao.getTempoExecucao().toString());
+        fieldTempExec.setText(configuracao.getSegundosAtualizacao().toString());
         panel.add(fieldTempExec);
 
         labelTempMin = new JLabel("Temperatura Minima");
@@ -163,7 +163,7 @@ public class Gerenciador extends JFrame {
         try {
             configuracao.setTemperaturaMaxima(Integer.parseInt(fieldTempMax.getText()));
             configuracao.setTemperaturaMinima(Integer.parseInt(fieldTempMin.getText()));
-            configuracao.setTempoExecucao(Integer.parseInt(fieldTempExec.getText()));
+            configuracao.setSegundosAtualizacao(Integer.parseInt(fieldTempExec.getText()));
 
             if (daoConfig.alterarConfiguracoes(configuracao)) {
                 JOptionPane.showMessageDialog(panel, "Sucesso", "Sucesso ao alterar configurações" , JOptionPane.OK_OPTION);

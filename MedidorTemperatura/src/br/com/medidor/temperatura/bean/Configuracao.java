@@ -5,6 +5,7 @@
 package br.com.medidor.temperatura.bean;
 
 import java.io.Serializable;
+import java.util.Date;
 
 /**
  *  Bean de Enity usado para salvar as  Configurações
@@ -23,7 +24,7 @@ public class Configuracao implements Serializable {
     /**
      * Tempo de execução em Segundos
      */
-    private Integer tempoExecucao;
+    private Integer segundosAtualizacao;
     /**
      * Temperatura minima que o aquário pode chegar
      */
@@ -32,6 +33,10 @@ public class Configuracao implements Serializable {
      * Temperatura máxima que o aquário pode chegar
      */
     private Integer temperaturaMaxima;
+    /**
+     * Temperatura máxima que o aquário pode chegar
+     */
+    private Date data;
 
     public Configuracao() {
     }
@@ -43,28 +48,45 @@ public class Configuracao implements Serializable {
      * @param temperaturaMinima Temperatura minima que o aquário pode chegar
      * @param temperaturaMaxima Temperatura máxima que o aquário pode chegar 
      */
-    public Configuracao(Integer id, Integer tempoExecucao, Integer temperaturaMinima, Integer temperaturaMaxima) {
+    public Configuracao(Integer id, Integer segundosAtualizacao, Integer temperaturaMinima, 
+            Integer temperaturaMaxima, Date data) {
         this.id = id;
         this.temperaturaMaxima = temperaturaMaxima;
         this.temperaturaMinima = temperaturaMinima;
-        this.tempoExecucao = tempoExecucao;
+        this.segundosAtualizacao = segundosAtualizacao;
+        this.data = data;
 
+    }
+    /**
+     * Data da Medicao da Temperatura
+     * @return data da medicao
+     */
+    public Date getData() {
+        return data;
+    }
+    
+    /**
+     * Data da Medicao da Temperatura
+     * @param data da medicao
+     */
+    public void setData(Date data) {
+        this.data = data;
     }
 
     /**
-     * Tempo de execução em Segundos
-     * @return o tempoExecucao
+     * Tempo da Execução em Segundos
+     * @return segundos
      */
-    public Integer getTempoExecucao() {
-        return tempoExecucao;
+    public Integer getSegundosAtualizacao() {
+        return segundosAtualizacao;
     }
 
     /**
-     * Tempo de execução em Segundos
-     * @param tempoExecucao em segundos
+     * Tempo da Execução em Segundos
+     * @param segundos
      */
-    public void setTempoExecucao(Integer tempoExecucao) {
-        this.tempoExecucao = tempoExecucao;
+    public void setSegundosAtualizacao(Integer segundosAtualizacao) {
+        this.segundosAtualizacao = segundosAtualizacao;
     }
 
     /**
@@ -122,8 +144,9 @@ public class Configuracao implements Serializable {
     @Override
     public String toString() {
         return "Configuracões"
-                + "\nTempo de Execução: " + tempoExecucao
+                + "\nTempo de Execução: " + segundosAtualizacao
                 + "\nTemperatura Minima: " + temperaturaMinima
-                + "\nTemperatura Máxima: " + temperaturaMaxima;
+                + "\nTemperatura Máxima: " + temperaturaMaxima
+                + "\nData Medição: " + data;
     }
 }
