@@ -17,3 +17,8 @@ JNIEXPORT jint JNICALL Java_br_com_medidor_temperatura_jni_RecuperaDadosJNI_temp
     return rand()%40+3; 
 }  
 
+
+/*
+ C:\Users\Paulinha\Documents\NetBeansProjects\MedidorTemperatura\build\classes>
+ * javah -jni br.com.medidor.temperatura.jni.RecuperaDadosJNI
+ */
