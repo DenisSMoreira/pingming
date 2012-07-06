@@ -71,8 +71,8 @@ public class RecuperaDadosJNI {
 
             seriesCollection = new XYSeriesCollection();
 
-            listaTemperatura.add((int) 3 + (Math.random() * 40));
-                    
+            listaTemperatura.add((int) 2 + (Math.random() * 45));
+            
             if (listaTemperatura.size() > ULTIMOS_DEZ) {
                 listaTemperatura.remove(0);
             }
@@ -89,9 +89,10 @@ public class RecuperaDadosJNI {
                        temperatura = 0;
                    }
                 }
-                
+
                 int ultimoDez = contador + INICIALIZADOR;
                 xYSeries.add(new XYDataItem(ultimoDez, temperatura));
+
             }
 
      
