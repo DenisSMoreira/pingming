@@ -34,7 +34,7 @@ public class JFramePrincipal extends JFrame {
         menuArquivo = new JMenu("Arquivo");
         bar.add(menuArquivo);
 
-        menuConfiguracao = new JMenu("Configuração");
+        menuConfiguracao = new JMenu("Temperatura");
         bar.add(menuConfiguracao);
 
         menuItemSair = new JMenuItem("Sair");
