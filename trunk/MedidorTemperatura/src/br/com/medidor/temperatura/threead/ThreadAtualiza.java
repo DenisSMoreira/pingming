@@ -7,6 +7,7 @@ package br.com.medidor.temperatura.threead;
 import br.com.medidor.temperatura.bean.Configuracao;
 import br.com.medidor.temperatura.grafico.Grafico;
 import br.com.medidor.temperatura.facotry.FacoryDataSet;
+import java.awt.ComponentOrientation;
 import java.awt.Dimension;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -52,6 +53,7 @@ public class ThreadAtualiza extends Thread {
                 chartPanel.setMouseZoomable(true, true);
 
                 applicationFrame.setContentPane(chartPanel);
+                applicationFrame.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
                 applicationFrame.validate();
 
 
