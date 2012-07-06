@@ -5,7 +5,7 @@
 package br.com.medidor.temperatura.view.grafico;
 
 import br.com.medidor.temperatura.bean.Configuracao;
-import br.com.medidor.temperatura.threead.ThreadAtualiza;
+import br.com.medidor.temperatura.threead.ThreadAtualizaGrafico;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.WindowEvent;
@@ -29,7 +29,7 @@ public final class Grafico extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;
     
-    private static ThreadAtualiza atualizarGrafico = null;
+    private static ThreadAtualizaGrafico atualizarGrafico = null;
     
     /**
      * Dimensão fixa do JFrame
@@ -106,7 +106,7 @@ public final class Grafico extends ApplicationFrame {
         final Grafico grafic = new Grafico("Medidor de temperatura de aquários");
 
         RefineryUtilities.centerFrameOnScreen(grafic);
-        atualizarGrafico = new ThreadAtualiza(grafic, configuracao);
+        atualizarGrafico = new ThreadAtualizaGrafico(grafic, configuracao);
         grafic.pack();
 
 

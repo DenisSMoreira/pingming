@@ -5,7 +5,7 @@
 package br.com.medidor.temperatura.facotry;
 
 import br.com.medidor.temperatura.bean.Configuracao;
-import br.com.medidor.temperatura.jni.RecuperaDadosJNI;
+import br.com.medidor.temperatura.jni.RecuperaTemperaturaJNI;
 import org.jfree.data.xy.XYDataset;
 
 /**
@@ -26,7 +26,7 @@ public final class FacoryDataSet {
      */   
     public static XYDataset createDataset(Configuracao configuracao) {
         
-        return RecuperaDadosJNI.getInstance().recuperarDados(configuracao);
+        return RecuperaTemperaturaJNI.getInstance().recuperarDados(configuracao);
 
     }
 }

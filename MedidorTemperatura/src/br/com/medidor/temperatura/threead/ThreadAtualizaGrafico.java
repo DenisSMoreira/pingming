@@ -19,7 +19,7 @@ import org.jfree.ui.ApplicationFrame;
  *
  * @author Paula
  */
-public class ThreadAtualiza extends Thread {
+public class ThreadAtualizaGrafico extends Thread {
 
     private ApplicationFrame applicationFrame = null;
     private Configuracao configuracao = null;
@@ -34,7 +34,7 @@ public class ThreadAtualiza extends Thread {
      * @param ApplicationFrame grafico
      * @param Configuracao configuracao
      */
-    public ThreadAtualiza(ApplicationFrame applicationFrame, Configuracao configuracao) {
+    public ThreadAtualizaGrafico(ApplicationFrame applicationFrame, Configuracao configuracao) {
         this.applicationFrame = applicationFrame;
         this.configuracao = configuracao;
     }
