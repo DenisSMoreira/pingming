@@ -54,7 +54,7 @@ public final class Grafico extends ApplicationFrame {
       
         final JFreeChart chart = ChartFactory.createXYLineChart(
             "Medidor de temperatura de aquários",      // Titulo
-            "Minutos",                                 // eixo x
+            "Medicoes",                                 // eixo x
             "Temperatura",                             // eixo y
             dataset,                                   // data
             PlotOrientation.HORIZONTAL,
