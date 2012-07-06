@@ -23,11 +23,11 @@ public final class ValidaTemperatura {
      * @param Temperatura temperatura
      * @param Configuracao configuracao  
      */
-    public static void verificaTemperatura(final Integer temperatura, final Configuracao configuracao) {
+    public static void verificaTemperatura(final Double temperatura, final Configuracao configuracao) {
         if (configuracao.getTemperaturaMinima() >= temperatura) {
-            JOptionPane.showMessageDialog(null, "Temperatura Abaixo do permitido");
+            JOptionPane.showMessageDialog(null, "Esquentando Aquário!");
         } else if (configuracao.getTemperaturaMaxima() <= temperatura) {
-            JOptionPane.showMessageDialog(null, "Temperatura Acima do permitido");
+            JOptionPane.showMessageDialog(null, "Esfriando Aquário!");
         }
 
     }
