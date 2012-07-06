@@ -32,9 +32,10 @@ public class RecuperaDadosJNI {
      * Nome do metodo nativo de outra linguagem
      * @return int temperatura 
      */
-    public native int temperatura();
+//    public native int temperatura();
 
     //Carrega .dll
+    /*
     static {
         try {
             System.load("C:\\Users\\Paulinha\\Documents\\NetBeansProjects\\Temperatura\\dist\\Debug\\MinGW-Windows\\libTemperatura.dll");
@@ -43,7 +44,7 @@ public class RecuperaDadosJNI {
         }
 
     }
-
+*/
     /**
      * Torna a classe singleton para melhorar performace
      * causado pela lentidão do JNI
@@ -71,14 +72,16 @@ public class RecuperaDadosJNI {
             seriesCollection = new XYSeriesCollection();
             listaTime.add(new Minute());
 
-            final int temp = temperatura();
-            System.out.println("*********"+temp);
+            // poe um random, ou deixa fixo, ai é para aparecer uma linha reta
+            final int temp = 10;//temperatura();
             listaTemperatura.add(temp);
-            ValidaTemperaturaUtil.verificaTemperatura(temp, configuracao);
+            
+           //TODO ValidaTemperaturaUtil.verificaTemperatura(temp, configuracao);
 
             for (int i = 0; i < listaTime.size(); i++) {
                 final Minute minute = listaTime.get(i);
                 final Integer temperatura = listaTemperatura.get(i);
+                // é pra add valor de 1 a 10 e não minutos
                 xYSeries.add(minute.getHourValue(), temperatura);
 
                 if (listaTime.size() >= 10 && listaTemperatura.size() >= 10) {
