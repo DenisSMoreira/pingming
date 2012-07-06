@@ -10,8 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.jfree.data.time.Minute;
-import org.jfree.data.time.TimeSeries;
-import org.jfree.data.time.TimeSeriesCollection;
+import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
 
@@ -19,23 +18,21 @@ import org.jfree.data.xy.XYSeriesCollection;
  * Recupera dados atráves do JNI
  * @author Paula
  */
-@SuppressWarnings("deprecation")
 public class RecuperaDadosJNI {
 
     private static RecuperaDadosJNI recuperaDadosJNI = null;
-    private XYSeries xYSeries = null;
+    private XYSeries xYSeries = new XYSeries("DataSet");
     private XYSeriesCollection seriesCollection = null;
-    private List<Minute> listaTime = new ArrayList<Minute>();
-    private List<Integer> listaTemperatura = new ArrayList<Integer>();
+    private List<Number> listaTemperatura = new ArrayList<Number>();
+    int i = 20;
 
     /**
      * Nome do metodo nativo de outra linguagem
      * @return int temperatura 
      */
-//    public native int temperatura();
-
+    public native int temperatura();
     //Carrega .dll
-    /*
+
     static {
         try {
             System.load("C:\\Users\\Paulinha\\Documents\\NetBeansProjects\\Temperatura\\dist\\Debug\\MinGW-Windows\\libTemperatura.dll");
@@ -44,7 +41,6 @@ public class RecuperaDadosJNI {
         }
 
     }
-*/
     /**
      * Torna a classe singleton para melhorar performace
      * causado pela lentidão do JNI
@@ -69,35 +65,32 @@ public class RecuperaDadosJNI {
     public XYSeriesCollection recuperarDados(Configuracao configuracao) {
 
         try {
+
             seriesCollection = new XYSeriesCollection();
-            listaTime.add(new Minute());
 
-            // poe um random, ou deixa fixo, ai é para aparecer uma linha reta
-            final int temp = 10;//temperatura();
-            listaTemperatura.add(temp);
-            
-           //TODO ValidaTemperaturaUtil.verificaTemperatura(temp, configuracao);
+            listaTemperatura.add(temperatura());
+            int tam = listaTemperatura.size();
+ 
+            for (int i = 0; i < tam; i++) {
+                Number temperatura;
+                temperatura = listaTemperatura.get(i);
+                XYDataItem dataItem = new XYDataItem(temperatura, i);
 
-            for (int i = 0; i < listaTime.size(); i++) {
-                final Minute minute = listaTime.get(i);
-                final Integer temperatura = listaTemperatura.get(i);
-                // é pra add valor de 1 a 10 e não minutos
-                xYSeries.add(minute.getHourValue(), temperatura);
-
-                if (listaTime.size() >= 10 && listaTemperatura.size() >= 10) {
-                    listaTime.remove(minute);
-                    listaTemperatura.remove(temperatura);
+                if (listaTemperatura.size() >= 10) {
+                    listaTemperatura.remove(0);
                 }
+              
+                xYSeries.addOrUpdate(dataItem);
             }
 
         } catch (Exception e) {
             System.err.println(e.getMessage() + e);
         }
-
-
         seriesCollection.addSeries(xYSeries);
 
 
         return seriesCollection;
     }
+
+  
 }
