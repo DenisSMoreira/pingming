@@ -8,8 +8,6 @@ import br.com.medidor.temperatura.bean.Configuracao;
 import br.com.medidor.temperatura.util.ValidaTemperatura;
 import java.util.ArrayList;
 import java.util.List;
-
-import org.jfree.data.time.Minute;
 import org.jfree.data.xy.XYDataItem;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -71,7 +69,9 @@ public class RecuperaTemperaturaJNI {
 
             seriesCollection = new XYSeriesCollection();
 
-            listaTemperatura.add((int) 2 + (Math.random() * 45));
+            listaTemperatura.add((int) 3 + (Math.random() * 45));
+            
+            ValidaTemperatura.verificaTemperatura(listaTemperatura.get(listaTemperatura.size()-1), configuracao);
             
             if (listaTemperatura.size() > ULTIMOS_DEZ) {
                 listaTemperatura.remove(0);
