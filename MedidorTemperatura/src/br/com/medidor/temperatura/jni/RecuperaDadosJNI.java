@@ -21,7 +21,7 @@ import org.jfree.data.xy.XYSeriesCollection;
 public class RecuperaDadosJNI {
 
     private static RecuperaDadosJNI recuperaDadosJNI = null;
-    private XYSeries xYSeries = new XYSeries("DataSet");
+    private XYSeries xYSeries = new XYSeries("Temperatura Medida");
     private XYSeriesCollection seriesCollection = null;
     private List<Number> listaTemperatura = new ArrayList<Number>();
     int i = 20;
@@ -30,6 +30,7 @@ public class RecuperaDadosJNI {
      * Nome do metodo nativo de outra linguagem
      * @return int temperatura 
      */
+    /*
     public native int temperatura();
     //Carrega .dll
 
@@ -41,6 +42,8 @@ public class RecuperaDadosJNI {
         }
 
     }
+     * 
+     */
     /**
      * Torna a classe singleton para melhorar performace
      * causado pela lentidão do JNI
@@ -68,15 +71,15 @@ public class RecuperaDadosJNI {
 
             seriesCollection = new XYSeriesCollection();
 
-            listaTemperatura.add(temperatura());
+            listaTemperatura.add((int) 3 + (Math.random() * 40));
             int tam = listaTemperatura.size();
  
             for (int i = 0; i < tam; i++) {
                 Number temperatura;
                 temperatura = listaTemperatura.get(i);
-                XYDataItem dataItem = new XYDataItem(temperatura, i);
+                XYDataItem dataItem = new XYDataItem(temperatura, i+1);
 
-                if (listaTemperatura.size() >= 10) {
+                if (listaTemperatura.size() > 10) {
                     listaTemperatura.remove(0);
                 }
               
