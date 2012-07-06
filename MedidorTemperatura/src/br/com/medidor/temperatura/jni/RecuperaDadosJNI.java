@@ -24,7 +24,6 @@ public class RecuperaDadosJNI {
     private XYSeries xYSeries = new XYSeries("Temperatura Medida");
     private XYSeriesCollection seriesCollection = null;
     private List<Number> listaTemperatura = new ArrayList<Number>();
-    int i = 20;
 
     /**
      * Nome do metodo nativo de outra linguagem
@@ -73,17 +72,16 @@ public class RecuperaDadosJNI {
 
             listaTemperatura.add((int) 3 + (Math.random() * 40));
             int tam = listaTemperatura.size();
- 
+                   
+            if (listaTemperatura.size() > 10) {
+                listaTemperatura.remove(0);
+            }
+            xYSeries = new XYSeries("Temperatura Medida");
             for (int i = 0; i < tam; i++) {
-                Number temperatura;
-                temperatura = listaTemperatura.get(i);
-                XYDataItem dataItem = new XYDataItem(temperatura, i+1);
-
-                if (listaTemperatura.size() > 10) {
-                    listaTemperatura.remove(0);
-                }
-              
-                xYSeries.addOrUpdate(dataItem);
+                Number temperatura = listaTemperatura.get(i);
+                
+                //xYSeries.remove(i+1);
+                xYSeries.add(new XYDataItem(i+1, temperatura));
             }
 
      

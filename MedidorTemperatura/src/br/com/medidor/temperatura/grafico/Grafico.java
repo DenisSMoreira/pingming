@@ -15,6 +15,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.axis.NumberAxis;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.plot.XYPlot;
+import org.jfree.chart.renderer.xy.XYLineAndShapeRenderer;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.ui.ApplicationFrame;
 import org.jfree.ui.RefineryUtilities;
@@ -27,6 +28,9 @@ import org.jfree.ui.RefineryUtilities;
 public final class Grafico extends ApplicationFrame {
 
     private static final long serialVersionUID = 1L;
+    
+    private static ThreadAtualiza atualizarGrafico = null;
+    
     /**
      * Dimensão fixa do JFrame
      */
@@ -51,13 +55,13 @@ public final class Grafico extends ApplicationFrame {
      */
      public static JFreeChart createChart(final XYDataset dataset) {
         
-      
+              
         final JFreeChart chart = ChartFactory.createXYLineChart(
             "Medidor de temperatura de aquários",      // Titulo
             "Medicoes",                                 // eixo x
             "Temperatura",                             // eixo y
             dataset,                                   // data
-            PlotOrientation.HORIZONTAL,
+            PlotOrientation.VERTICAL,
             true,                                      // incluir legenda
             true,                                      // tooltips
             false                                      // urls
@@ -71,6 +75,11 @@ public final class Grafico extends ApplicationFrame {
         plot.setBackgroundPaint(Color.lightGray);
         plot.setDomainGridlinePaint(Color.white);
         plot.setRangeGridlinePaint(Color.white);
+        
+        final XYLineAndShapeRenderer renderer = new XYLineAndShapeRenderer();
+        renderer.setSeriesLinesVisible(1, false);
+        renderer.setSeriesShapesVisible(1, false);
+        plot.setRenderer(renderer);
         
         plot.setDomainCrosshairLockedOnData(true);
         plot.setDomainCrosshairVisible(true);
@@ -97,7 +106,7 @@ public final class Grafico extends ApplicationFrame {
         final Grafico grafic = new Grafico("Medidor de temperatura de aquários");
 
         RefineryUtilities.centerFrameOnScreen(grafic);
-        final ThreadAtualiza atualizarGrafico = new ThreadAtualiza(grafic, configuracao);
+        atualizarGrafico = new ThreadAtualiza(grafic, configuracao);
         grafic.pack();
 
 
@@ -115,6 +124,7 @@ public final class Grafico extends ApplicationFrame {
      */
     @Override
     public void windowClosing(WindowEvent e) {
+        atualizarGrafico.interrupt();
         this.setVisible(false);
 
     }
