@@ -5,7 +5,7 @@
 package br.com.medidor.temperatura.jni;
 
 import br.com.medidor.temperatura.bean.Configuracao;
-import br.com.medidor.temperatura.util.ValidaTemperaturaUtil;
+import br.com.medidor.temperatura.util.ValidaTemperatura;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,10 +18,10 @@ import org.jfree.data.xy.XYSeriesCollection;
  * Recupera dados atráves do JNI
  * @author Paula
  */
-public class RecuperaDadosJNI {
+public class RecuperaTemperaturaJNI {
     private static final int INICIALIZADOR = 1;
     private static final int ULTIMOS_DEZ = 10;
-    private static RecuperaDadosJNI recuperaDadosJNI = null;
+    private static RecuperaTemperaturaJNI recuperaDadosJNI = null;
     private XYSeries xYSeries = new XYSeries("Temperatura Medida");
     private XYSeriesCollection seriesCollection = null;
     private List<Double> listaTemperatura = new ArrayList<Double>();
@@ -49,9 +49,9 @@ public class RecuperaDadosJNI {
      * causado pela lentidão do JNI
      * @return RecuperaDadosJNI new();
      */
-    public static RecuperaDadosJNI getInstance() {
+    public static RecuperaTemperaturaJNI getInstance() {
         if (recuperaDadosJNI == null) {
-            recuperaDadosJNI = new RecuperaDadosJNI();
+            recuperaDadosJNI = new RecuperaTemperaturaJNI();
             return recuperaDadosJNI;
         } else {
             return recuperaDadosJNI;

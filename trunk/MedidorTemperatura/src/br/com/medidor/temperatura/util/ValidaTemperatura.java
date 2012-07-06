@@ -11,9 +11,9 @@ import javax.swing.JOptionPane;
  * Valida Temperatura Util
  * @author Paula
  */
-public final class ValidaTemperaturaUtil {
+public final class ValidaTemperatura {
     
-    private ValidaTemperaturaUtil(){
+    private ValidaTemperatura(){
         
     }
     
