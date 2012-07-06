@@ -19,11 +19,12 @@ import org.jfree.data.xy.XYSeriesCollection;
  * @author Paula
  */
 public class RecuperaDadosJNI {
-
+    private static final int INICIALIZADOR = 1;
+    private static final int ULTIMOS_DEZ = 10;
     private static RecuperaDadosJNI recuperaDadosJNI = null;
     private XYSeries xYSeries = new XYSeries("Temperatura Medida");
     private XYSeriesCollection seriesCollection = null;
-    private List<Number> listaTemperatura = new ArrayList<Number>();
+    private List<Double> listaTemperatura = new ArrayList<Double>();
 
     /**
      * Nome do metodo nativo de outra linguagem
@@ -71,17 +72,26 @@ public class RecuperaDadosJNI {
             seriesCollection = new XYSeriesCollection();
 
             listaTemperatura.add((int) 3 + (Math.random() * 40));
-            int tam = listaTemperatura.size();
-                   
-            if (listaTemperatura.size() > 10) {
+                    
+            if (listaTemperatura.size() > ULTIMOS_DEZ) {
                 listaTemperatura.remove(0);
             }
             xYSeries = new XYSeries("Temperatura Medida");
-            for (int i = 0; i < tam; i++) {
-                Number temperatura = listaTemperatura.get(i);
+            for (int contador = 0; contador < ULTIMOS_DEZ; contador++) {
+               double temperatura;
+              
+               if(contador == ULTIMOS_DEZ){
+                   temperatura = listaTemperatura.get(contador-INICIALIZADOR);
+                }else{ 
+                   try{
+                       temperatura = listaTemperatura.get(contador);
+                   }catch(Exception e){
+                       temperatura = 0;
+                   }
+                }
                 
-                //xYSeries.remove(i+1);
-                xYSeries.add(new XYDataItem(i+1, temperatura));
+                int ultimoDez = contador + INICIALIZADOR;
+                xYSeries.add(new XYDataItem(ultimoDez, temperatura));
             }
 
      
