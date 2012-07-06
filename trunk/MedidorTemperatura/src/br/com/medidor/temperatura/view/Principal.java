@@ -4,7 +4,7 @@
  */
 package br.com.medidor.temperatura.view;
 
-import br.com.medidor.temperatura.view.JFrameConfiguracao;
+import br.com.medidor.temperatura.view.JPanelConfiguracao;
 
 /**
  * Classe Main, responsável por startar a aplicação.
@@ -17,9 +17,8 @@ public class Principal {
      * @param args 
      */
     public static void main(String[] args) {
-
-        JFrameConfiguracao gerenciador = new JFrameConfiguracao();
-        gerenciador.setVisible(true);
+        JFramePrincipal ob = new JFramePrincipal();
+        ob.setVisible(true);
 
     }
 }
