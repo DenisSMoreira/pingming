@@ -28,7 +28,7 @@ public class RecuperaTemperaturaJNI {
      * Nome do metodo nativo de outra linguagem
      * @return int temperatura 
      */
-    /*
+    
     public native int temperatura();
     //Carrega .dll
 
@@ -40,8 +40,7 @@ public class RecuperaTemperaturaJNI {
         }
 
     }
-     * 
-     */
+     
     /**
      * Torna a classe singleton para melhorar performace
      * causado pela lentidão do JNI
