@@ -19,12 +19,6 @@ import javax.swing.JMenuItem;
  */
 public class JFramePrincipal extends JFrame {
 
-    private JMenu menuArquivo, menuConfiguracao;
-    private JMenuItem menuItemSair, menuItemGrafico;
-    private JMenuBar bar;
-    private JPanelConfiguracao gerenciador = null;
-    private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    private Action action = new Action();
 
     public JFramePrincipal() {
         super("Tela Principal");
@@ -92,4 +86,12 @@ public class JFramePrincipal extends JFrame {
         }
 
     }
+    
+    
+    private JMenu menuArquivo, menuConfiguracao;
+    private JMenuItem menuItemSair, menuItemGrafico;
+    private JMenuBar bar;
+    private JPanelConfiguracao gerenciador = null;
+    private final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    private Action action = new Action();
 }
